@@ -123,16 +123,19 @@ header#primary-header #header-cont {
 }
 
 #user-links img.avatar {
+	float: right;
+	margin: 2px 0 0 8px;
+}
+
+img.avatar {
 	width: 38px;
 	height: 38px;
 	padding: 2px;
 	background-color: white;
 	border: 1px solid #ccc;
-	float: right;
-	margin: 2px 0 0 8px;
 }
 
-#user-links a:hover img.avatar {
+a:hover img.avatar {
 	border: 1px solid #222;
 }
 
@@ -188,7 +191,7 @@ a.danger:hover {
 	background-image: -ms-linear-gradient(top, #fcfcfc, #ddd 100%);
 	background-image: linear-gradient(top, #fcfcfc, #ddd 100%);
 	
-	padding: 5px 5px 0 5px;
+	padding: 5px;
 	border: 1px solid #ccc;
 	margin: 15px 0 0 0;
 }
@@ -228,20 +231,55 @@ a.danger:hover {
 .track-widget:after { clear: both; }
 .track-widget { zoom: 1; }
 
-ul.track-history {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+.track-history {
 	float: left;
 }
 
-ul.track-history li {
+.track-history ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
+.track-history li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
 
+#discussion {
+	float: right;
+	width: 290px;
+}
+#discussion textarea {
+	width: 280px;
+}
+#discussion form {
+	text-align: right;
+}
+#discussion input {
+	/* submit button */
+	margin-top: 5px;
+	padding: 5px 10px;
+}
+
+#discussion ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#discussion li {
+	list-style: none;
+	padding: 8px 0 0 0;
+	margin: 0;
+	clear: both;
+}
+
+#discussion .avatar {
+	float: left;
+	margin-right: 8px;
+}
 
 footer {
 	margin: 120px auto 80px auto;
