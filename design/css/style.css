@@ -142,7 +142,20 @@ header#primary-header #header-cont {
 
 
 
-
+footer {
+	margin: 120px auto 80px auto;
+	border-top: 1px solid #ddd;
+	width: 920px;
+	text-align: right;
+}
+footer p {
+	font-size: 13px;
+	color: #555;
+	line-height: 18px;
+}
+footer a {
+	color: #555;
+}
 
 
 
