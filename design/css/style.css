@@ -76,7 +76,7 @@ header#primary-header {
 	background-image: -webkit-linear-gradient(top, #fcfcfc, #e6e6e6 100%);
 	background-image: -o-linear-gradient(top, #fcfcfc, #e6e6e6 100%);
 	background-image: -ms-linear-gradient(top, #fcfcfc, #e6e6e6 100%);
-	background-image: linear-gradient(top, #fcfcfc, #e6e6e6 100%)
+	background-image: linear-gradient(top, #fcfcfc, #e6e6e6 100%);
 }
 
 header#primary-header h1 {
