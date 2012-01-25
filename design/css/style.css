@@ -216,10 +216,30 @@ a.danger:hover {
 	color: #222;
 	text-shadow: #fafafa 1px 1px 0;
 }
+.track-widget.mid-width .message {
+	width: 530px; // 840 - 310 (??)
+}
+
+.track-widget.mid-width {
+	width: 600px; // 920 - 320
+}
 
 .track-widget:before, .track-widget:after { content: ""; display: table; }
 .track-widget:after { clear: both; }
 .track-widget { zoom: 1; }
+
+ul.track-history {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+
+ul.track-history li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
 
 
 
