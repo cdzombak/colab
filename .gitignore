@@ -1,1 +1,17 @@
 *.bak
+
+
+## CakePHP
+
+# The CakePHP framework will be added as /cakephp so this entry just
+# prevents us from accidentally committing the default /cake location
+/cake
+
+# TODO: I've disabled this for now to make our deployment lives easier. -- CDZ 2012-02-09
+# Prevent sensitive data from ending up in your repo
+#/app/config/database.php
+#/app/config/core.php
+
+# prevent temporary files from ending up in our repo
+/app/tmp/cache/persistent/cake_*
+/app/tmp/logs/*.log
