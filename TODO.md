@@ -1,0 +1,1 @@
+* Eventually, extract Cake core to a submodule
