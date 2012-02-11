@@ -9,10 +9,10 @@ USE `colab` ;
 -- Table `colab`.`users`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `colab`.`users` (
-  `id` BIGINT UNSIGNED NOT NULL ,
+  `facebook_id` BIGINT UNSIGNED NOT NULL ,
   `name` VARCHAR(128) NULL ,
-  PRIMARY KEY (`id`) ,
-  UNIQUE INDEX `facebook_id_UNIQUE` (`id` ASC) )
+  PRIMARY KEY (`facebook_id`) ,
+  UNIQUE INDEX `facebook_id_UNIQUE` (`facebook_id` ASC) )
 ENGINE = InnoDB;
 
 
@@ -30,7 +30,7 @@ CREATE  TABLE IF NOT EXISTS `colab`.`songs` (
   INDEX `fk_songs_users1` (`owner` ASC) ,
   CONSTRAINT `fk_songs_users1`
     FOREIGN KEY (`owner` )
-    REFERENCES `colab`.`users` (`id` )
+    REFERENCES `colab`.`users` (`facebook_id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -58,7 +58,7 @@ CREATE  TABLE IF NOT EXISTS `colab`.`track_versions` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_track_versions_users1`
     FOREIGN KEY (`author` )
-    REFERENCES `colab`.`users` (`id` )
+    REFERENCES `colab`.`users` (`facebook_id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -147,14 +147,14 @@ ENGINE = InnoDB;
 -- Table `colab`.`songs_users`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `colab`.`songs_users` (
-  `user_id` BIGINT UNSIGNED NOT NULL ,
+  `facebook_id` BIGINT UNSIGNED NOT NULL ,
   `song_id` INT UNSIGNED NOT NULL ,
-  PRIMARY KEY (`user_id`, `song_id`) ,
+  PRIMARY KEY (`facebook_id`, `song_id`) ,
   INDEX `fk_users_has_songs_songs1` (`song_id` ASC) ,
-  INDEX `fk_users_has_songs_users1` (`user_id` ASC) ,
+  INDEX `fk_users_has_songs_users1` (`facebook_id` ASC) ,
   CONSTRAINT `fk_users_has_songs_users1`
-    FOREIGN KEY (`user_id` )
-    REFERENCES `colab`.`users` (`id` )
+    FOREIGN KEY (`facebook_id` )
+    REFERENCES `colab`.`users` (`facebook_id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_has_songs_songs1`
