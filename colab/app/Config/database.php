@@ -62,10 +62,10 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'www.eecs.umich.edu', // TODO no idea if that's right; waiting on info from CAEN
-		'login' => 'mkolas',
-		'password' => 'ygOmxifX',
-		'database' => 'colab',
+		'host' => 'mysql.chrisdzombak.net', // TODO no idea if that's right; waiting on info from CAEN
+		'login' => 'colab_usr',
+		'password' => 'cjytjyctc54375437',
+		'database' => 'cdz_colab',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);
@@ -73,10 +73,10 @@ class DATABASE_CONFIG {
 	public $test = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'www.eecs.umich.edu', // TODO no idea if that's right; waiting on info from CAEN
-		'login' => 'mkolas',
-		'password' => 'ygOmxifX',
-		'database' => 'colab',
+		'host' => 'mysql.chrisdzombak.net', // TODO no idea if that's right; waiting on info from CAEN
+		'login' => 'colab_usr',
+		'password' => 'cjytjyctc54375437',
+		'database' => 'cdz_colab',
 		'prefix' => 'cltest',
 		'encoding' => 'utf8',
 	);
