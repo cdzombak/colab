@@ -106,8 +106,15 @@ CREATE  TABLE IF NOT EXISTS `cdz_colab`.`discussion_messages` (
   `created` DATETIME NOT NULL ,
   `associated_entity_type` VARCHAR(32) NOT NULL COMMENT 'Cake model name representing track, track version, or song.' ,
   `associated_entity_id` INT UNSIGNED NOT NULL ,
+  `user_id` INT UNSIGNED NOT NULL ,
   PRIMARY KEY (`id`) ,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) )
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
+  INDEX `fk_discussion_messages_users1` (`user_id` ASC) ,
+  CONSTRAINT `fk_discussion_messages_users1`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `cdz_colab`.`users` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -120,12 +127,19 @@ CREATE  TABLE IF NOT EXISTS `cdz_colab`.`timebased_comments` (
   `timestamp` INT NOT NULL COMMENT 'time into the track, in seconds' ,
   `created` DATETIME NOT NULL ,
   `track_version_id` INT UNSIGNED NOT NULL ,
+  `user_id` INT UNSIGNED NOT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `comment_id_UNIQUE` (`id` ASC) ,
   INDEX `fk_timebased_comments_track_versions1` (`track_version_id` ASC) ,
+  INDEX `fk_timebased_comments_users1` (`user_id` ASC) ,
   CONSTRAINT `fk_timebased_comments_track_versions1`
     FOREIGN KEY (`track_version_id` )
     REFERENCES `cdz_colab`.`track_versions` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_timebased_comments_users1`
+    FOREIGN KEY (`user_id` )
+    REFERENCES `cdz_colab`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
