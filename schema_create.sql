@@ -2,6 +2,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
+CREATE SCHEMA IF NOT EXISTS `cdz_colab` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `cdz_colab` ;
 
 -- -----------------------------------------------------
 -- Table `cdz_colab`.`users`
@@ -9,8 +11,16 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 CREATE  TABLE IF NOT EXISTS `cdz_colab`.`users` (
   `facebook_id` BIGINT UNSIGNED NOT NULL ,
   `name` VARCHAR(128) NULL ,
-  PRIMARY KEY (`facebook_id`) ,
-  UNIQUE INDEX `facebook_id_UNIQUE` (`facebook_id` ASC) )
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `username` VARCHAR(50) NOT NULL ,
+  `password` VARCHAR(50) NOT NULL ,
+  `role` VARCHAR(20) NOT NULL ,
+  `created` DATETIME NOT NULL ,
+  `modified` DATETIME NULL DEFAULT NULL ,
+  PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `facebook_id_UNIQUE` (`facebook_id` ASC) ,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) )
 ENGINE = InnoDB;
 
 
@@ -19,7 +29,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `cdz_colab`.`songs` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `owner` BIGINT UNSIGNED NOT NULL COMMENT 'user ID of owner' ,
+  `owner` INT UNSIGNED NOT NULL COMMENT 'user ID of owner' ,
   `name` VARCHAR(128) NOT NULL ,
   `deleted_time` DATETIME NULL ,
   `created_time` DATETIME NOT NULL ,
@@ -28,7 +38,7 @@ CREATE  TABLE IF NOT EXISTS `cdz_colab`.`songs` (
   INDEX `fk_songs_users1` (`owner` ASC) ,
   CONSTRAINT `fk_songs_users1`
     FOREIGN KEY (`owner` )
-    REFERENCES `cdz_colab`.`users` (`facebook_id` )
+    REFERENCES `cdz_colab`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -42,7 +52,7 @@ CREATE  TABLE IF NOT EXISTS `cdz_colab`.`track_versions` (
   `message` VARCHAR(2048) NULL ,
   `filename` VARCHAR(40) NOT NULL ,
   `track_id` INT UNSIGNED NOT NULL ,
-  `author` BIGINT UNSIGNED NOT NULL ,
+  `author` INT UNSIGNED NOT NULL ,
   `created_time` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `track_version_id_UNIQUE` (`id` ASC) ,
@@ -56,7 +66,7 @@ CREATE  TABLE IF NOT EXISTS `cdz_colab`.`track_versions` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_track_versions_users1`
     FOREIGN KEY (`author` )
-    REFERENCES `cdz_colab`.`users` (`facebook_id` )
+    REFERENCES `cdz_colab`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -145,14 +155,14 @@ ENGINE = InnoDB;
 -- Table `cdz_colab`.`songs_users`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `cdz_colab`.`songs_users` (
-  `facebook_id` BIGINT UNSIGNED NOT NULL ,
+  `user_id` INT UNSIGNED NOT NULL ,
   `song_id` INT UNSIGNED NOT NULL ,
-  PRIMARY KEY (`facebook_id`, `song_id`) ,
+  PRIMARY KEY (`user_id`, `song_id`) ,
   INDEX `fk_users_has_songs_songs1` (`song_id` ASC) ,
-  INDEX `fk_users_has_songs_users1` (`facebook_id` ASC) ,
+  INDEX `fk_users_has_songs_users1` (`user_id` ASC) ,
   CONSTRAINT `fk_users_has_songs_users1`
-    FOREIGN KEY (`facebook_id` )
-    REFERENCES `cdz_colab`.`users` (`facebook_id` )
+    FOREIGN KEY (`user_id` )
+    REFERENCES `cdz_colab`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_has_songs_songs1`
