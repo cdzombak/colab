@@ -40,9 +40,17 @@ class UsersController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->User->create();
-            if ($this->User->save($this->request->data)) {
+
+			$data = array();
+			$data['role'] = 'user';
+			$data['facebook_id'] = $this->request->data['User']['facebook_id'];
+			$data['name'] = $this->request->data['User']['name'];
+			$data['username'] = $this->request->data['User']['username'];
+			$data['password'] = $this->request->data['User']['password'];
+
+            if ($this->User->save($data)) {
                 $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
+                $this->redirect(array('controller' => 'users', 'action' => 'login'));
             } else {
                 $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
