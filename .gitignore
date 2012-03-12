@@ -1,5 +1,7 @@
 *.bak
 
+/deploy/to-dh.sh
+/deploy/from-dh.sh
 
 ## CakePHP
 
