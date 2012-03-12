@@ -6,8 +6,8 @@ App::uses('AppController', 'Controller');
  * @property Track $Track
  */
 class TracksController extends AppController {
-
-
+	public $components = array('Waveform');
+			
 /**
  * index method
  *
