@@ -7,7 +7,7 @@
 			<th><?php echo $this->Paginator->sort('filename');?></th>
 			<th><?php echo $this->Paginator->sort('track_id');?></th>
 			<th><?php echo $this->Paginator->sort('author');?></th>
-			<th><?php echo $this->Paginator->sort('created_time');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -20,11 +20,10 @@
 			<?php echo $this->Html->link($trackVersion['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $trackVersion['Track']['id'])); ?>
 		</td>
 		<td><?php echo h($trackVersion['TrackVersion']['author']); ?>&nbsp;</td>
-		<td><?php echo h($trackVersion['TrackVersion']['created_time']); ?>&nbsp;</td>
+		<td><?php echo h($trackVersion['TrackVersion']['created']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $trackVersion['TrackVersion']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $trackVersion['TrackVersion']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $trackVersion['TrackVersion']['id']), null, __('Are you sure you want to delete # %s?', $trackVersion['TrackVersion']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

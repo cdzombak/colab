@@ -26,9 +26,9 @@
 			<?php echo h($trackVersion['TrackVersion']['author']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created Time'); ?></dt>
+		<dt><?php echo __('Created'); ?></dt>
 		<dd>
-			<?php echo h($trackVersion['TrackVersion']['created_time']); ?>
+			<?php echo h($trackVersion['TrackVersion']['created']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -37,7 +37,6 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Track Version'), array('action' => 'edit', $trackVersion['TrackVersion']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Track Version'), array('action' => 'delete', $trackVersion['TrackVersion']['id']), null, __('Are you sure you want to delete # %s?', $trackVersion['TrackVersion']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Track Versions'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Track Version'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tracks'), array('controller' => 'tracks', 'action' => 'index')); ?> </li>
