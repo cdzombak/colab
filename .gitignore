@@ -3,6 +3,8 @@
 /deploy/to-dh.sh
 /deploy/from-dh.sh
 
+/colab/app/webroot/uploads/track_version/filename/*.mp3
+
 # TODO: I've disabled this for now to make our deployment lives easier. -- CDZ 2012-02-09
 # Prevent sensitive data from ending up in your repo
 #/app/config/database.php
