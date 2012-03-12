@@ -26,6 +26,12 @@ class TrackVersion extends AppModel {
 		)
 	);
 	
+	public function afterSave($created) {
+		if ($created) {
+			
+		}
+	}
+	
 /**
  * Validation rules
  *
@@ -68,6 +74,13 @@ class TrackVersion extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		)
+	);
+
+	public $hasOne = array(
+		'Author' => array(
+			'className' => 'User',
+			'foreignKey' => 'author'
 		)
 	);
 

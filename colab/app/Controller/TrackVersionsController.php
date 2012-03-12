@@ -49,8 +49,11 @@ class TrackVersionsController extends AppController {
 			$this->request->data['TrackVersion']['track_id'] = $trackId;
 			
 			if ($this->TrackVersion->save($this->request->data)) {
+				$this->TrackVersion->Track->read(null, $this->TrackVersion->field('track_id'));
+				$this->TrackVersion->Track->save(array("current_version" => $this->TrackVersion->id));
+				
 				$this->Session->setFlash(__('The track version has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'tracks', 'action' => 'view', $this->TrackVersion->field('track_id')));
 			} else {
 				$this->Session->setFlash(__('The track version could not be saved. Please, try again.'));
 			}

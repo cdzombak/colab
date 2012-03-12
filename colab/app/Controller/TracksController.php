@@ -29,7 +29,12 @@ class TracksController extends AppController {
 		if (!$this->Track->exists()) {
 			throw new NotFoundException(__('Invalid track'));
 		}
-		$this->set('track', $this->Track->read(null, $id));
+		
+		$track = $this->Track->read(null, $id);
+		foreach($track['TrackVersion'] as &$version) {
+			$version['author'] = $this->Track->TrackVersion->Author->read('name', $version['author']);
+		}
+		$this->set('track', $track);
 	}
 
 /**

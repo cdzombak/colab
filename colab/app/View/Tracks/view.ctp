@@ -27,6 +27,29 @@
 			&nbsp;
 		</dd>
 	</dl>
+	
+	<h2><?php echo __('Versions') ?></h2>
+	
+	<table cellpadding="0" cellspacing="0">
+	<tr>
+		<th>ID</th>
+		<th>Message</th>
+		<th>Filename</th>
+		<th>Author</th>
+		<th>Created</th>
+	</tr>
+		<?php
+		array_reverse($track['TrackVersion']);
+		foreach($track['TrackVersion'] as $trackVersion) { ?>
+		<tr>
+			<td><?php echo h($trackVersion['id']); ?>&nbsp;</td>
+			<td><?php echo h($trackVersion['message']); ?>&nbsp;</td>
+			<td><?php echo h($trackVersion['filename']); ?>&nbsp;</td>
+			<td><?php echo $this->Html->link(__($trackVersion['author']['Author']['name']), array('controller' => 'users', 'action' => 'view', $trackVersion['author']['Author']['id'])); ?></td>
+			<td><?php echo h($trackVersion['created']); ?>&nbsp;</td>
+		</tr>
+		<?php } ?>
+	</table>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
