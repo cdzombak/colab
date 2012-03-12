@@ -14,22 +14,24 @@ class TrackVersion extends AppModel {
  * @var string
  */
 	public $displayField = 'message';
+	
+	var $actsAs = array(
+		'MeioUpload.MeioUpload' => array(
+			'filename' => array(
+				'maxSize'=> 7340032,
+				'allowedMime' => array('audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio', 'audio/wav', 'audio/x-wav', 'audio/wave', 'audio/x-pn-wav'),
+				'allowedExt' => array('.mp3', '.wav'),
+				'thumbnails' => false
+			)
+		)
+	);
+	
 /**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
-		'filename' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'track_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
