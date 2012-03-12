@@ -6,7 +6,7 @@ App::uses('AppController', 'Controller');
  * @property TrackVersion $TrackVersion
  */
 class TrackVersionsController extends AppController {
-
+	public $components = array('Waveform');
 
 /**
  * index method
