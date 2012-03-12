@@ -77,7 +77,7 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `cdz_colab`.`tracks` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `song_id` INT UNSIGNED NOT NULL ,
-  `current_version` INT UNSIGNED NOT NULL ,
+  `current_version` INT UNSIGNED NULL ,
   `name` VARCHAR(128) NOT NULL ,
   `created` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,

@@ -10,6 +10,7 @@ class AppController extends Controller {
 			'authorize' => array('Controller')
 		)
 	);
+	
 	public $helpers = array('Form', 'Html', 'Js', 'Time', 'Session', 'Facebook.Facebook');
 
 	public function afterFacebookLogin() {
