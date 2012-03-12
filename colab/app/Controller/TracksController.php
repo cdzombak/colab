@@ -37,12 +37,16 @@ class TracksController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($songId = null) {
 		if ($this->request->is('post')) {
+			if (!$songId) {
+				throw new NotFoundException(__('Invalid song specified'));
+			}
+
 			$this->Track->create();
 			
 			$data = array();
-			$data['song_id'] = $this->request->data['Track']['song_id'];
+			$data['song_id'] = $songId;
 			$data['current_version'] = $this->request->data['Track']['current_version'];
 			$data['name'] = $this->request->data['Track']['name'];
 			

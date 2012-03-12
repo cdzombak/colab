@@ -6,9 +6,9 @@
 			<?php echo h($track['Track']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Song Id'); ?></dt>
+		<dt><?php echo __('Song'); ?></dt>
 		<dd>
-			<?php echo h($track['Track']['song_id']); ?>
+			<?php echo $this->Html->link($track['Song']['name'], array('controller' => 'songs', 'action' => 'view', $track['Song']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Current Version'); ?></dt>
