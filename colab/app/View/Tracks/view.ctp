@@ -16,19 +16,14 @@
 			<?php echo h($track['Track']['current_version']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Deleted Time'); ?></dt>
-		<dd>
-			<?php echo h($track['Track']['deleted_time']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
 			<?php echo h($track['Track']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created Time'); ?></dt>
+		<dt><?php echo __('Created'); ?></dt>
 		<dd>
-			<?php echo h($track['Track']['created_time']); ?>
+			<?php echo h($track['Track']['created']); ?>
 			&nbsp;
 		</dd>
 	</dl>

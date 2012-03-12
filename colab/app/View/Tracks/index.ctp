@@ -5,9 +5,8 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('song_id');?></th>
 			<th><?php echo $this->Paginator->sort('current_version');?></th>
-			<th><?php echo $this->Paginator->sort('deleted_time');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('created_time');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -16,9 +15,8 @@
 		<td><?php echo h($track['Track']['id']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['song_id']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['current_version']); ?>&nbsp;</td>
-		<td><?php echo h($track['Track']['deleted_time']); ?>&nbsp;</td>
 		<td><?php echo h($track['Track']['name']); ?>&nbsp;</td>
-		<td><?php echo h($track['Track']['created_time']); ?>&nbsp;</td>
+		<td><?php echo h($track['Track']['created']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $track['Track']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $track['Track']['id'])); ?>

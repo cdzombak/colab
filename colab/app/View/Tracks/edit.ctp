@@ -3,12 +3,8 @@
 	<fieldset>
 		<legend><?php echo __('Edit Track'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('song_id');
 		echo $this->Form->input('current_version');
-		echo $this->Form->input('deleted_time');
 		echo $this->Form->input('name');
-		echo $this->Form->input('created_time');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
