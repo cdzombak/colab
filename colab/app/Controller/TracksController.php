@@ -52,12 +52,11 @@ class TracksController extends AppController {
 			
 			$data = array();
 			$data['song_id'] = $songId;
-			$data['current_version'] = $this->request->data['Track']['current_version'];
 			$data['name'] = $this->request->data['Track']['name'];
 			
 			if ($this->Track->save($data)) {
 				$this->Session->setFlash(__('The track has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Track->field('id')));
 			} else {
 				$this->Session->setFlash(__('The track could not be saved. Please, try again.'));
 			}

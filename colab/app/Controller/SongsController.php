@@ -47,7 +47,7 @@ class SongsController extends AppController {
 			
 			if ($this->Song->save($data)) {
 				$this->Session->setFlash(__('The song has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Song->field('id')));
 			} else {
 				$this->Session->setFlash(__('The song could not be saved. Please, try again.'));
 			}

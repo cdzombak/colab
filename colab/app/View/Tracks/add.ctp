@@ -3,7 +3,6 @@
 	<fieldset>
 		<legend><?php echo __('Add Track'); ?></legend>
 	<?php
-		echo $this->Form->input('current_version');
 		echo $this->Form->input('name');
 	?>
 	</fieldset>
