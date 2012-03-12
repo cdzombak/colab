@@ -1,12 +1,12 @@
 <?php
 App::uses('AppController', 'Controller');
+
 /**
  * Songs Controller
  *
  * @property Song $Song
  */
 class SongsController extends AppController {
-
 
 /**
  * index method
@@ -40,7 +40,13 @@ class SongsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Song->create();
-			if ($this->Song->save($this->request->data)) {
+			
+			$data = array();
+			$data['name'] = $this->request->data['Song']['name'];
+			$data['owner'] = $this->Connect->user('id');
+			$data['created_time'] = date('Y-m-d H:i:s');
+			
+			if ($this->Song->save($data)) {
 				$this->Session->setFlash(__('The song has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
