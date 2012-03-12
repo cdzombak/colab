@@ -7,7 +7,7 @@
 		echo $this->Form->input('filename');
 		echo $this->Form->input('track_id');
 		echo $this->Form->input('author');
-		echo $this->Form->input('created_time');
+		echo $this->Form->input('created');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

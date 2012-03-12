@@ -40,7 +40,13 @@ class TracksController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Track->create();
-			if ($this->Track->save($this->request->data)) {
+			
+			$data = array();
+			$data['song_id'] = $this->request->data['Track']['song_id'];
+			$data['current_version'] = $this->request->data['Track']['current_version'];
+			$data['name'] = $this->request->data['Track']['name'];
+			
+			if ($this->Track->save($data)) {
 				$this->Session->setFlash(__('The track has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -61,7 +67,12 @@ class TracksController extends AppController {
 			throw new NotFoundException(__('Invalid track'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Track->save($this->request->data)) {
+			
+			$data = array();
+			$data['current_version'] = $this->request->data['Track']['current_version'];
+			$data['name'] = $this->request->data['Track']['name'];
+			
+			if ($this->Track->save($data)) {
 				$this->Session->setFlash(__('The track has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -93,6 +104,7 @@ class TracksController extends AppController {
 		$this->Session->setFlash(__('Track was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
 /**
  * admin_index method
  *

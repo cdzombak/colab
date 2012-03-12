@@ -5,11 +5,7 @@
 	<?php
 		echo $this->Form->input('facebook_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('id');
-		echo $this->Form->input('username');
 		echo $this->Form->input('password');
-		echo $this->Form->input('role');
-		echo $this->Form->input('Song');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

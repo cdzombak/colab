@@ -44,7 +44,6 @@ class SongsController extends AppController {
 			$data = array();
 			$data['name'] = $this->request->data['Song']['name'];
 			$data['owner'] = $this->Auth->user('id');
-			$data['created_time'] = date('Y-m-d H:i:s');
 			
 			if ($this->Song->save($data)) {
 				$this->Session->setFlash(__('The song has been saved'));
@@ -67,7 +66,11 @@ class SongsController extends AppController {
 			throw new NotFoundException(__('Invalid song'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Song->save($this->request->data)) {
+			
+			$data = array();
+			$data['name'] = $this->request->data['Song']['name'];
+			
+			if ($this->Song->save($data)) {
 				$this->Session->setFlash(__('The song has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -99,6 +102,7 @@ class SongsController extends AppController {
 		$this->Session->setFlash(__('Song was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
 /**
  * admin_index method
  *
