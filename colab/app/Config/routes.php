@@ -31,6 +31,10 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	
+	Router::connect('/songs/add' 
+		, array('controller' => 'songs', 'action' => 'add')
+	);
+	
 	Router::connect('/songs/:id' 
 		, array('controller' => 'songs', 'action' => 'view')
 		, array('pass' => array('id'))
