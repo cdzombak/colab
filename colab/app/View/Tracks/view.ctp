@@ -31,6 +31,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(__('Upload New Version of Track'), '/tracks/'.$track['Track']['id'].'/addVersion'); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Track'), array('action' => 'edit', $track['Track']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Track'), array('action' => 'delete', $track['Track']['id']), null, __('Are you sure you want to delete # %s?', $track['Track']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tracks'), array('action' => 'index')); ?> </li>

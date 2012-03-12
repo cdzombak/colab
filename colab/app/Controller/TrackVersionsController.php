@@ -37,11 +37,16 @@ class TrackVersionsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($trackId = null) {
 		if ($this->request->is('post')) {
+			if (!$trackId) {
+				throw new NotFoundException(__('Invalid track specified'));
+			}
+			
 			$this->TrackVersion->create();
 			
 			$this->request->data['TrackVersion']['author'] = $this->Auth->user('id');
+			$this->request->data['TrackVersion']['track_id'] = $trackId;
 			
 			if ($this->TrackVersion->save($this->request->data)) {
 				$this->Session->setFlash(__('The track version has been saved'));

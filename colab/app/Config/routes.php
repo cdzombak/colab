@@ -40,6 +40,16 @@
 		array('controller' => 'tracks', 'action' => 'add'),
 		array('pass' => array('songId'))
 	);
+	
+	Router::connect('/tracks/:id' 
+		, array('controller' => 'tracks', 'action' => 'view')
+		, array('pass' => array('id'))
+	);
+	
+	Router::connect('/tracks/:trackId/addVersion',
+		array('controller' => 'trackVersions', 'action' => 'add'),
+		array('pass' => array('trackId'))
+	);
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 

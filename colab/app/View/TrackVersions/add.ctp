@@ -3,7 +3,6 @@
 	<fieldset>
 		<legend><?php echo __('Add Track Version'); ?></legend>
 	<?php
-		echo $this->Form->input('track_id');
 		echo $this->Form->input('message');
 		echo $this->Form->input('filename', array('type' => 'file'));
 		echo $this->Form->input('dir', array('type' => 'hidden'));
