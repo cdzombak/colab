@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rsync -hrtz --delete --executability chrisdz@cdzombak.net:/home/chrisdz/web/colab.cdzombak.net/ colab/
+rsync -hrtz --delete --executability USERNAME@mclean.cdzombak.net:/home/USERNAME/USERNAME.colab.cdzombak.net/ colab/
