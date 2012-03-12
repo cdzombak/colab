@@ -1,3 +1,4 @@
+
 <div class="tracks view">
 <h2><?php  echo __('Track');?></h2>
 	<dl>
@@ -33,6 +34,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th>ID</th>
+		<th>Listen</th>
 		<th>Message</th>
 		<th>Filename</th>
 		<th>Author</th>
@@ -43,6 +45,7 @@
 		foreach($track['TrackVersion'] as $trackVersion) { ?>
 		<tr>
 			<td><?php echo h($trackVersion['id']); ?>&nbsp;</td>
+			<td><a href="<?php echo '/', $trackVersion['dir'], '/', $trackVersion['filename'];?>" class = "sm2_button"></a></td>
 			<td><?php echo h($trackVersion['message']); ?>&nbsp;</td>
 			<td><?php echo h($trackVersion['filename']); ?>&nbsp;</td>
 			<td><?php echo $this->Html->link(__($trackVersion['author']['Author']['name']), array('controller' => 'users', 'action' => 'view', $trackVersion['author']['Author']['id'])); ?></td>
