@@ -43,7 +43,7 @@ class SongsController extends AppController {
 			
 			$data = array();
 			$data['name'] = $this->request->data['Song']['name'];
-			$data['owner'] = $this->Connect->user('id');
+			$data['owner'] = $this->Auth->user('id');
 			$data['created_time'] = date('Y-m-d H:i:s');
 			
 			if ($this->Song->save($data)) {
