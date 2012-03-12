@@ -1,3 +1,24 @@
+<head>
+	<style tpye="text/css">
+	#soundmanager-debug {
+ 	/* SM2 debug container (optional, makes debug more useable) */
+	position:absolute;position:fixed;*position:absolute;bottom:10px;right:10px;width:50em;height:18em;overflow:auto;background:#fff;margin:1em;padding:1em;border:1px solid #999;font-family:"lucida console",verdana,tahoma,"sans serif";font-size:x-small;line-height:1.5em;opacity:0.9;filter:alpha(opacity=90);
+	}
+
+	body {
+		font:75% normal verdana,arial,tahoma,"sans serif";
+	}
+
+	</style>
+
+	<link rel="stylesheet" type="text/css" href="/css/mp3-player-button.css" />
+	<script type="text/javascript" src="/js/soundmanager2.js"></script>
+	<script type="text/javascript" src="/js/mp3-player-button.js"></script>
+	<script type="text/javascript">
+	soundManager.url = '/swf/'; // directory where SM2 .SWFs live
+	</script>
+</head>
+
 <div class="trackVersions index">
 	<h2><?php echo __('Track Versions');?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -6,6 +27,7 @@
 			<th><?php echo $this->Paginator->sort('message');?></th>
 			<th><?php echo $this->Paginator->sort('filename');?></th>
 			<th><?php echo $this->Paginator->sort('track_id');?></th>
+			<th><?php echo "Listen";?><th>
 			<th><?php echo $this->Paginator->sort('author');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
@@ -19,6 +41,7 @@
 		<td>
 			<?php echo $this->Html->link($trackVersion['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $trackVersion['Track']['id'])); ?>
 		</td>
+		<td><p><a href="<?php echo $trackVersion['TrackVersion']['dir'], '/', $trackVersion['TrackVersion']['filename'];?>" class = "sm2_button"></a>test</p></td>
 		<td><?php echo h($trackVersion['TrackVersion']['author']); ?>&nbsp;</td>
 		<td><?php echo h($trackVersion['TrackVersion']['created']); ?>&nbsp;</td>
 		<td class="actions">
