@@ -360,6 +360,6 @@ drawWaveform($argv[1], $argv[2]);
 	   hexdec( substr($input, 0, 2) ),
 	   hexdec( substr($input, 2, 2) ),
 	   hexdec( substr($input, 4, 2) )
-	  );  
+	  );
+	}
 }
-?>
