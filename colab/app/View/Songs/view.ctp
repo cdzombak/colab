@@ -16,14 +16,9 @@
 			<?php echo h($song['Song']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Deleted Time'); ?></dt>
+		<dt><?php echo __('Created'); ?></dt>
 		<dd>
-			<?php echo h($song['Song']['deleted_time']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created Time'); ?></dt>
-		<dd>
-			<?php echo h($song['Song']['created_time']); ?>
+			<?php echo h($song['Song']['created']); ?>
 			&nbsp;
 		</dd>
 	</dl>
