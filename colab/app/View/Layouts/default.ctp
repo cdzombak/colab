@@ -28,6 +28,15 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 			<?php echo $this->Session->flash(); ?>
 
+			<?php 
+			if (!isset($authUser) || !$authUser) {
+			    echo $this->Html->link('Login', array('controller'=>'users', 'action'=>'login'));
+			} else {
+				echo 'Hello, ' . $authUser['name'] . '!';
+				echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout'));
+			}
+			?>
+			
 			<?php echo $content_for_layout; ?>
 
 		</div>

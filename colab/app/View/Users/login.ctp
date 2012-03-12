@@ -1,4 +1,4 @@
-<?php echo $this->Facebook->login(array('perms' => 'email')); ?>
+<?php /*echo $this->Facebook->login(array('perms' => 'email'));*/ ?>
 
 <div class="users form">
 <?php echo $this->Session->flash('auth'); ?>

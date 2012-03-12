@@ -8,20 +8,25 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 	
 	public function login() {
-	    if ($this->Auth->login()) {
-	        $this->redirect($this->Auth->redirect());
-	    } else {
-	        $this->Session->setFlash(__('Invalid username or password, try again'));
-	    }
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				$this->Session->setFlash(__('Welcome ' . $this->Auth->user('name') . '!'));
+				$this->redirect($this->Auth->redirect());
+			} else {
+				$this->Session->setFlash(__('Invalid username or password, try again'));
+			}
+		}
 	}
 
 	public function logout() {
-	    $this->redirect($this->Auth->logout());
+		$this->Session->setFlash(__('Bye ' . $this->Auth->user('name') . '!'));
+		$this->Auth->logout();
+	    //$this->redirect($this->Auth->logout());
 	}
 
 	public function beforeFilter() {
 	        parent::beforeFilter();
-	        $this->Auth->allow('add', 'logout');
+	        $this->Auth->allow('add', 'login', 'logout');
 	    }
 
     public function index() {
