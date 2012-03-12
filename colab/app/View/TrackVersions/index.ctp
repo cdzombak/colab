@@ -20,7 +20,7 @@
 		<td>
 			<?php echo $this->Html->link($trackVersion['Track']['name'], array('controller' => 'tracks', 'action' => 'view', $trackVersion['Track']['id'])); ?>
 		</td>
-		<td><p><a href="<?php echo $trackVersion['TrackVersion']['dir'], '/', $trackVersion['TrackVersion']['filename'];?>" class = "sm2_button"></a>test</p></td>
+		<td><a href="<?php echo '/', $trackVersion['TrackVersion']['dir'], '/', $trackVersion['TrackVersion']['filename'];?>" class = "sm2_button"></a></td>
 		<td><?php echo h($trackVersion['TrackVersion']['author']); ?>&nbsp;</td>
 		<td><?php echo h($trackVersion['TrackVersion']['created']); ?>&nbsp;</td>
 		<td class="actions">
