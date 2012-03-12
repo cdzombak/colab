@@ -9,5 +9,5 @@
 #/app/config/core.php
 
 # prevent temporary files from ending up in our repo
-/app/tmp/cache/persistent/cake_*
-/app/tmp/logs/*.log
+/colab/app/tmp/cache/persistent/cake_*
+/colab/app/tmp/logs/*.log
