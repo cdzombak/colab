@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>Perspective: Web Export</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <style type="text/css">
+/* general stuff */
+body 
+{
+    text-align: left;
+    font-family: "helvetica", sans-serif;
+    font-size: 11pt;
+}
+
+a:link
+{
+    color: #0057cb;
+    text-decoration: none;
+}
+
+a:visited
+{
+    color: #00449e;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: #0057cb;
+    text-decoration: underline;
+}
+
+h1 
+{
+    text-align: center;
+    font-size: large;
+}
+
+/* for escaping from floats */
+div.clearer
+{
+    clear: both;
+}
+
+/* normal data table */
+table.basic
+{
+    border-collapse: collapse;
+    font-size: 9pt;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.basic td
+{
+    #border: 1pt solid #bfbfbf;
+    padding-top: 4pt;
+    padding-bottom: 4pt;
+    padding-left: 8pt;
+    padding-right: 8pt;
+}
+
+td.wrap
+{
+    word-wrap: break-word;
+}
+
+td.header 
+{
+    background-color: #bfbfbf;
+    font-weight: bold;
+}
+
+tr.omnifocus-folder
+{
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAZCAIAAAB/8tMoAAACEmlDQ1BJQ0MgUHJvZmlsZQAAeJyNkrFrE3EUxz930VZCCVKDitMJUhyihGSom2mT1KYt8UhSmsRBLnfX5PTuclwuqRYH/wEXB10cRB0cOjiKS6NdCuIgggpObg5OCg5KOYfrXQYb7IMffN7jy3vv9/39IPZdcRxTBCzbcytX5qV6oylNfiLOGU5xmrii9pw5WV5hbPz6iADw4YLiOOZ43YGRcOuNJggpINkOOAckWwHXgOSG53ggdICk2lE0EO4AKbdWyYPwHEi0A34JJFoB7wKJgdr2QPgMpG3NsEE8BlzS9J4KYg7QtJ5qgfgM+G1ZXQ1ij4HzquN6ENsFztUbTSlYeWMTLjdBnB3V6i9g6yicvD6qzWxBcgde3RvVfnQQAGH6a289mwFAmGrDxBHf//kAJr/A3lnf//Pa9/feQOwJ7BTVvjvY90sQ3sH/8uDOQQ7vvZDGceALAGl4OoS1ISwN4dFdmHkIJ66BnIPaEDGbDU/gIQDxvGHrliItFg758IcNy+yHM6aBKbtVvrrP3xxProXcG1SLIa8bC6WQNaWwHPJmJ1+ONO5CJeQbypIcsm6vVqP+prwymjUf6fVesTrqWVsL2e1XVkO+2V2O9JpeiHazzXLU0/BK0f7kMbDRsVCQWKQAwV8EmDgO9zMiicH29tt/PPL0Wx5Avuvcdo12x5PmHMfUU1LJVi+mpEw6PctfX6OpPU1oaYAAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAnSURBVAiZYzhz5gwTFxcX0////5n+///PxMDAwMTAwICVjS5GpHoAvaYglVf7BV8AAAAASUVORK5CYII=);
+    background-repeat: repeat-x;
+    background-color: #CCCCCC;
+    font-size: medium;
+    font-weight: bold;
+}
+
+tr.omnifocus-project
+{
+    background-color: #F2F2F2;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    font-weight: bold;
+}
+
+tr.omnifocus-note
+{
+    color: #545454;
+    font-size: smaller;
+}
+
+td.level-0 
+{
+    padding-left: 8pt;
+}
+
+td.level-1 
+{
+    padding-left: 24pt;
+}
+
+td.level-2
+{
+    padding-left: 40pt;
+}
+
+td.level-3
+{
+    padding-left: 56pt;
+}
+
+td.level-4
+{
+    padding-left: 72pt;
+}
+
+td.level-5
+{
+    padding-left: 88pt;
+}
+
+td.level-6
+{
+    padding-left: 104pt;
+}
+
+td.level-7
+{
+    padding-left: 120pt;
+}
+
+td.date 
+{
+    text-align: right;
+}
+
+td.duration 
+{
+    text-align: right;
+}
+
+p.unregistered 
+{
+    text-align: left;
+    font-size: 12pt;
+    color: #333333;
+    border-top: 1pt solid #999999;
+}
+
+p.footer 
+{
+    text-align: center;
+    font-size: 8pt;
+    color: #333333;
+}
+
+img.project-active
+{
+    width: 20px;
+    height: 16px;
+    vertical-align: bottom;
+    margin-right: 3px;
+    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAACEmlDQ1BJQ0MgUHJvZmlsZQAAeJyNkrFrE3EUxz930VZCCVKDitMJUhyihGSom2mT1KYt8UhSmsRBLnfX5PTuclwuqRYH/wEXB10cRB0cOjiKS6NdCuIgggpObg5OCg5KOYfrXQYb7IMffN7jy3vv9/39IPZdcRxTBCzbcytX5qV6oylNfiLOGU5xmrii9pw5WV5hbPz6iADw4YLiOOZ43YGRcOuNJggpINkOOAckWwHXgOSG53ggdICk2lE0EO4AKbdWyYPwHEi0A34JJFoB7wKJgdr2QPgMpG3NsEE8BlzS9J4KYg7QtJ5qgfgM+G1ZXQ1ij4HzquN6ENsFztUbTSlYeWMTLjdBnB3V6i9g6yicvD6qzWxBcgde3RvVfnQQAGH6a289mwFAmGrDxBHf//kAJr/A3lnf//Pa9/feQOwJ7BTVvjvY90sQ3sH/8uDOQQ7vvZDGceALAGl4OoS1ISwN4dFdmHkIJ66BnIPaEDGbDU/gIQDxvGHrliItFg758IcNy+yHM6aBKbtVvrrP3xxProXcG1SLIa8bC6WQNaWwHPJmJ1+ONO5CJeQbypIcsm6vVqP+prwymjUf6fVesTrqWVsL2e1XVkO+2V2O9JpeiHazzXLU0/BK0f7kMbDRsVCQWKQAwV8EmDgO9zMiicH29tt/PPL0Wx5Avuvcdo12x5PmHMfUU1LJVi+mpEw6PctfX6OpPU1oaYAAAAAJcEhZcwAACxMAAAsTAQCanBgAAAJQSURBVDiNrZO7a1RREIe/mXt3dfERBUnAqEi08hVtDRhbC0ESFEtfpPMv8IU2WthYplOJ0WChgrZWgtiLIKiBBRETER+E3L33zIzFrkS9sRGnOefMnPn4/c4D/nPIzMzM09m373YsLCwOiAeeCRLg6qhDZAbmiDZxAgkHlDVr17e3b9/6anxs/NCvwLzdbu88MXGmf1WrhaoSYWQIbjmaJcIzQiDCQIPMBNfg2/fFLVO3btYU5p/m5vvfTN8jxLHI0MzBHNUcCwEcDQXACFRBPfBmk29fvvTVgMkKhk+ewjFEBHWo1Gj4CkwqFMEEsgCRwMIRGkQyHl+9UlfYKcExisXE5rGHvJ4+zNkbL3AEJQhRxAKkC0ISU5cOEmF0Sq8Dy7JEw1nRhLknR1EJpi+MEpIAJQQkfm9SEimCTlEso7CzgDksFs6mY3dp3x9j4toznCaCEygqQYQh0iDEuXN+P4ZQpYU6sCgrIoJWs8HnR8eptGLq4mhPnUMoGUFguHQvhwAs0SmsDqw6JeEl3wth2/GHzN47wsT154iVkLdwKvCMEEckUFfunBshZY51OsufoUvO6pXOhwdjKMLt8yMI3jMsPduGO6gqFg6WKLyqAzcObnm/vm/doOiSHZGuKwGChHhOSCAIIUvN/RsGPteAe/ftennqxGmf//hhs/U2SyhIwkXJLPAsJzwhGeDdrzkwOPB2dP+BV5OTk78Dh3cPX96za0/vYeS9dGJpnX4Zf04roFGzC5APDQ29KctWgq/LbqCPv5a6xT8jkGWy/xw/AL31Jzch6U6hAAAAAElFTkSuQmCC);
+}
+
+img.folder
+{
+    width: 20px;
+    height: 16px;
+    vertical-align: top;
+    margin-right: 3px;
+    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAACEmlDQ1BJQ0MgUHJvZmlsZQAAeJyNkrFrE3EUxz930VZCCVKDitMJUhyihGSom2mT1KYt8UhSmsRBLnfX5PTuclwuqRYH/wEXB10cRB0cOjiKS6NdCuIgggpObg5OCg5KOYfrXQYb7IMffN7jy3vv9/39IPZdcRxTBCzbcytX5qV6oylNfiLOGU5xmrii9pw5WV5hbPz6iADw4YLiOOZ43YGRcOuNJggpINkOOAckWwHXgOSG53ggdICk2lE0EO4AKbdWyYPwHEi0A34JJFoB7wKJgdr2QPgMpG3NsEE8BlzS9J4KYg7QtJ5qgfgM+G1ZXQ1ij4HzquN6ENsFztUbTSlYeWMTLjdBnB3V6i9g6yicvD6qzWxBcgde3RvVfnQQAGH6a289mwFAmGrDxBHf//kAJr/A3lnf//Pa9/feQOwJ7BTVvjvY90sQ3sH/8uDOQQ7vvZDGceALAGl4OoS1ISwN4dFdmHkIJ66BnIPaEDGbDU/gIQDxvGHrliItFg758IcNy+yHM6aBKbtVvrrP3xxProXcG1SLIa8bC6WQNaWwHPJmJ1+ONO5CJeQbypIcsm6vVqP+prwymjUf6fVesTrqWVsL2e1XVkO+2V2O9JpeiHazzXLU0/BK0f7kMbDRsVCQWKQAwV8EmDgO9zMiicH29tt/PPL0Wx5Avuvcdo12x5PmHMfUU1LJVi+mpEw6PctfX6OpPU1oaYAAAAAJcEhZcwAACxMAAAsTAQCanBgAAAHZSURBVDiNrZOxaxRBFMZ/39zmBEWCNgpWwmFhMIIamyBYCSnEQhD/ByvBysrC0kYsJNrbmTIBIVaKaEAQ8SpLCxFiY8TZ2dn3LGZzd6LxTvAVu8PMvN/75n0z8J9DW++G65svXq1IAoS7I4n5/Qe+XVg+t3FycPyepK1ZgdXmy9crZ86eH00EOe5OzvngxrPn144duf42ux/tTSS1QA+gbaHXy8A28F7SD929/8hHciVkhqkoDSHgXpbLN4ygJqgw3J1LF5c3lhZP3JH6bypJXL1yGaxFHYjQA2tLkVAU42FcQAXUc6fRPtbW1laWFhceAFRNjHz6/IXgRYd3f2ms5s+xuxdirGnbrocpJTxnso9OTjHIZvEAd6euY9dZqGKM5JxnSt4rUkqjcZVSommaf4ZIwsyQRF3XY2CMkZ2d7518A9Qt+e+UifAgggtwYoxjYF3XpJTwUK6Mh2JG+DsP6+oG51eFKSVybjpXHTMjONgUhW0HM5Uemtn2SOGuKeXZhc6vKUd2x1Rk1nXN3NzcR4CqTTWHD8132wKQcSo0w7VxAsKwtkHSV4Dq9OKpD6urqwsukBfg5BPbKyRhLoRx+9bNh+tPn5T54XB4Y2r2lOj3+2kwGDwG+AlqwPN2ALtLHwAAAABJRU5ErkJggg==)
+}
+
+img.flag
+{
+    width: 13px;
+    height: 13px;
+    vertical-align: top;
+    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAACEGlDQ1BJQ0MgUHJvZmlsZQAAeJyNkrFrE3EUxz930VakHFKj8wlSHKKEZLCbaZPUpi3xSFKaxEGud9fk9O5y3F1SLQ7+Ay4OujiIOjh0cBSXRrsUxEEEKTi5OTgpOCjlHK53GTTYBz/4vMeX997v+/tB6pvqupYI2E7g1a7Oy81WW57cR+AMEhIpVfPdOUVZYWz8/IQA8PGi6rrWeN0/Q/KarTYIGSDdibgApNcjbgDpzcANQOgCaa2r6iDcBTJeo1YE4QUgdSJ+BUjrEe8B0kDrBCDsA1lHNx0QTwCzuuFrIBYAXfc1G8TnwC/b7umQegJc0FwvgNQecL7ZasvRyptbcKUN4uVRrfkSto/D2Ruj2sw2pHfh9f1R7XsXARCmv/gb+RwAwlQHJo6F4Y+HMPkZDs6F4e83YXjwFlJPYbes9b3BoV+C8B7+l0d3jnL4EMQ0jiNfAMjCsyGsDWFpCI/vwcwjOH0dlAI0hoj5fHwiDwE4WTQdw1blxdIRH/6oYVv9eMY0MOWsV68d8lc3UBox+4N6OeYNc6ESs66WlmPe6haricZbqMV8U11SYjac1XrS31JWRrPmE73hl+ujno21mL1+bTXmW73lRK8bpWQ3x6omPc2gkuxPERMHAxsVmUVKEP1FgIlT8CAnIg12dt795VFg3A4Aij33jmd2uoE857qWkZErjnYpI+ey2Vn+AMtjqRcfXQxXAAAACXBIWXMAAAsTAAALEwEAmpwYAAACT0lEQVQokX3Sz0uTcRwH8Pf3+zzPtkc3numcSuZ6ctjS1BUkKEp/QEEgRIcdo8hbXepSt05CdNil0EuXijqUS7B1mRWlKLSYOkuWNDPh8bHFtpxzz69PlwTp0Ov0vr3hzRv4i4gkqlKIarUeIgoTFRtwANEvZT+L2WzW1dnd2eVsLA3X8vMRWs908CZ1m4UHVkyTlohQAEzHzGfO7BA98TKmianXSV09Glb24iM1Hgy5He6BkUli7eFtCJLL5AF1qz0c2XDt7cj11xNzADR+ojf66NPCrOO6s+i212bBjvRBCg8ATEC+aEraty+HS/OJQeNz6mTtR3qoWCw28O7enpsfM4uF6m4N9Vceg1L3wHwBhI4dh8Q4TJKwVWPgcGClJs4pdYrKW1tbKyMj5y9PvZiynL6zEJs64HgUyOppHPKJMBlhzwF2bA5j4emQYfzs4gAQCnW8VIINzzPLS+S68R72qzEwuQ7tPafg5wSBAaZjg1mGi39fbmf7M5bL5aaJ8Qdfr46OKu7NNBlzz5KCEqw6ei5gaPk2URQMNhh7Kw5dus9mZmZEVVVFr9craZp2MZ1Oj8diMcYYu2Db9gpjrI4x5gVgW5a1Kctynkej0Xq/3++pVCpej8fzxrbtZC6XY0QU13V9fXJyMiNJ0jtJkj7IspwHAA4AhULBV61WfaVSSYlEImPT09MVy7LaGhsbb/X390sA2MF38Hg8/lsQhO2Wlpat5uZmTRTF3WAweDeRSDhut/uaZVkEgPA/2WzWpeu6d3V1dbhcLgf+bQGAPzJ5Bso9e6PwAAAAAElFTkSuQmCC)
+}
+
+</style></head>
+  <body>
+        <table class="basic" id="omnifocus-report">
+	<tr class="omnifocus-project">
+ <td style="" class="level-1 wrap"><img class="project-active" />CoLAB</td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=>
+<td style="" class="level-1 wrap">display/work with relationships</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=>
+<td style="" class="level-1 wrap">workflow optimizations, redirects, routing, crud links, etc</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=>
+<td style="" class="level-1 wrap">templates</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=>
+<td style="" class="level-1 wrap">basic song/track management & versioning</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=>
+<td style="" class="level-1 wrap">complete song/track views (song has tracks, tracks have version history)</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class=>
+<td style="" class="level-1 wrap">access control</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F2</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">users collaboration on songs</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F2</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">song/track management and history</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F3</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">simultaneous listening & playback interface in general</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F5</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">visual diffs</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F6</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">comment on track versions</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F7</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">comment on tracks, songs (discussion)</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F7</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">timebased comments in player</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F7</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">track version downloads</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F8</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">tagging track versions</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F9</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">Facebook integration</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr class="omnifocus-note">
+ <td colspan=5 class="level-1">F1</td>
+ </tr><tr class=>
+<td style="" class="level-1 wrap">soundcloud integration</td>
+<td>CoLAB</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+<p/>
+<p class="footer">Exported 3/18/12</p>
+<!-- OmniFocus&nbsp;1.0 -->
+</body>
+</html>
