@@ -54,6 +54,14 @@
 		array('controller' => 'trackVersions', 'action' => 'add'),
 		array('pass' => array('trackId'))
 	);
+	Router::connect('/songs/:id', //i slightly know what i am doing
+	    array('controller' => 'songs', 'action' => 'view'),
+	    array('id' => '[0-9]+')
+	);
+	Router::connect('/songs/:songId/tracks/:trackId',
+		array('controller' => 'tracks', 'action' => 'view'), //dgaf
+		array('trackId' => '[0-9]+')
+	);
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 

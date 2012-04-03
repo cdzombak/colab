@@ -22,6 +22,29 @@
 			&nbsp;
 		</dd>
 	</dl>
+	<h2><?php echo __('Tracks') ?></h2>
+	
+	
+	<table cellpadding="0" cellspacing="0">
+	<tr>
+		<th>Name</th>
+		<th>Listen</th>
+		<th>Current Version</th>
+		<th>Created</th>
+	</tr>
+		<?php
+		//array_reverse($track['TrackVersion']);
+		foreach($song['Track'] as $track) { ?>
+		<tr>
+			<td><?php echo h($track['name'])?></td>
+			<td>Listen Placeholder</td>
+			<td><?php echo h($track['current_version']); ?>&nbsp;</td>
+			<td><?php echo h($track['created']); ?>&nbsp;</td>
+		</tr>
+		<?php } ?>
+		
+		
+	</table>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

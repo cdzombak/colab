@@ -1,4 +1,3 @@
-
 <div class="tracks view">
 <h2><?php  echo __('Track');?></h2>
 	<dl>
