@@ -59,8 +59,13 @@
 	    array('id' => '[0-9]+')
 	);
 	Router::connect('/songs/:songId/tracks/:trackId',
-		array('controller' => 'tracks', 'action' => 'view'), //dgaf
-		array('trackId' => '[0-9]+')
+		array('controller' => 'tracks', 'action' => 'view', 'songId' => null), //idgaf
+		array('pass' => array('trackId'))
+	);
+	Router::connect('/songs/:songId/tracks/:trackId/trackVersions/:tvId',
+		array('controller' => 'trackVersions', 'action' => 'view', 'songId' => null,
+		  	'trackId' => null),
+		array('pass' => array('tvId'))
 	);
 
 /**
