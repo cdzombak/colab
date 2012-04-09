@@ -31,19 +31,31 @@
 		<th>Listen</th>
 		<th>Current Version</th>
 		<th>Created</th>
+		<th>View</th>
 	</tr>
 		<?php
 		//array_reverse($track['TrackVersion']);
 		foreach($song['Track'] as $track) { ?>
 		<tr>
 			<td><?php echo h($track['name'])?></td>
-			<td>Listen Placeholder</td>
+			<<td><a href="
+			<?php
+			$max = 0;
+			foreach($trackVersions as $tv){ //forgive me father
+				if($tv['TrackVersions']['track_id'] == $track['id']){ //for i have sinned
+					if($tv['TrackVersions']['id'] > $max)
+						$max = $tv['TrackVersions']['id'];
+				}
+			}
+			echo '/', $trackVersions[$max]['TrackVersions']['dir'], '/', $trackVersions[$max]['TrackVersions']['filename'];?>
+			" class = "sm2_button"></a></td>
 			<td><?php echo h($track['current_version']); ?>&nbsp;</td>
 			<td><?php echo h($track['created']); ?>&nbsp;</td>
+			<<td class="actions">
+				<?php echo $this->Html->link(__('View'), array('controller' => 'tracks', 'action' => 'view', $track['id'])); ?>
+			</td>
 		</tr>
-		<?php } ?>
-		
-		
+		<?php } ?>		
 	</table>
 </div>
 <div class="actions">

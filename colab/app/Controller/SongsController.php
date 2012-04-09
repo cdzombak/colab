@@ -1,13 +1,11 @@
 <?php
 App::uses('AppController', 'Controller');
-
 /**
  * Songs Controller
  *
  * @property Song $Song
  */
 class SongsController extends AppController {
-
 /**
  * index method
  *
@@ -26,10 +24,13 @@ class SongsController extends AppController {
  */
 	public function view($id = null) {
 		$this->Song->id = $id;
+		$this->loadModel('TrackVersions');
 		if (!$this->Song->exists()) {
 			throw new NotFoundException(__('Invalid song'));
 		}
 		$this->set('song', $this->Song->read(null, $id));
+		$this->set('trackVersions', $this->TrackVersions->find('all'));
+	    
 	}
 
 /**

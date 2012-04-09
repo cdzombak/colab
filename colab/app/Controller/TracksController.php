@@ -36,6 +36,8 @@ class TracksController extends AppController {
 		}
 		$this->set('track', $track);
 	}
+	
+	///LOOK AT TRACK STUFF UP HERE TO FORWARD TO SONGS VIEW PAGE ^^^^^^^^^
 
 /**
  * add method

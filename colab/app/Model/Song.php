@@ -5,6 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Track $Track
  * @property User $User
+ * @property TrackVersion $TrackVersion
  */
 class Song extends AppModel {
 /**
