@@ -41,7 +41,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<header id="primary-header"> <!-- TODO swap these two tags -->
 	<div id="header-cont" class="clearfix">
 		
-		<h1><a href="#"><img src="/img/logo-1.png" alt="CoLAB" title="CoLAB" /></a></h1>
+		<h1><a href="/"><img src="/img/logo-1.png" alt="CoLAB" title="CoLAB" /></a></h1>
 		
 		<div id="user-links">
 			<?php 
