@@ -25,14 +25,18 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
-/**
- * ...and connect the rest of 'Pages' controller's urls.
- */
+	// Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/', array('controller' => 'songs', 'action' => 'index'));
+	
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	
 	Router::connect('/songs/add' 
 		, array('controller' => 'songs', 'action' => 'add')
+	);
+	
+	Router::connect('/songs/:id/edit' 
+		, array('controller' => 'songs', 'action' => 'add')
+		, array('pass' => array('id'))
 	);
 	
 	Router::connect('/songs/:id' 
@@ -40,9 +44,9 @@
 		, array('pass' => array('id'))
 	);
 	
-	Router::connect('/songs/:songId/addTrack',
+	Router::connect('/songs/:id/addTrack',
 		array('controller' => 'tracks', 'action' => 'add'),
-		array('pass' => array('songId'))
+		array('pass' => array('id'))
 	);
 	
 	Router::connect('/tracks/:id' 
