@@ -76,6 +76,10 @@ class TracksController extends AppController {
 		if (!$this->Track->exists()) {
 			throw new NotFoundException(__('Invalid track'));
 		}
+		
+		$track = $this->Track->read(null, $id);
+		$this->set('track', $track);
+		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			
 			$data = array();
