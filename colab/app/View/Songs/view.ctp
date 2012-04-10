@@ -47,12 +47,11 @@
 	</table>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Add Track To Song'), '/songs/'.$song['Song']['id'].'/addTrack'); ?> </li>
-		<li><?php echo $this->Html->link(__('Edit Song'), array('action' => 'edit', $song['Song']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Song'), array('action' => 'delete', $song['Song']['id']), null, __('Are you sure you want to delete # %s?', $song['Song']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Songs'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Song'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit This Song'), array('action' => 'edit', $song['Song']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Back to Songs'), array('action' => 'index'));?></li>
+		<!--<li><?php echo $this->Form->postLink(__('Delete Song'), array('action' => 'delete', $song['Song']['id']), null, __('Are you sure you want to delete # %s?', $song['Song']['id'])); ?> </li>-->
+		<!--<li><?php echo $this->Html->link(__('List Songs'), array('action' => 'index')); ?> </li>-->
 	</ul>
 </div>
