@@ -296,6 +296,10 @@ footer a {
 	color: #555;
 }
 
+tr.current-version {
+	background-color: #98FF89 !important;
+}
+
 
 
 /* ==|== non-semantic helper classes ======================================== */
