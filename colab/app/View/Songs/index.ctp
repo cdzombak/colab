@@ -4,20 +4,15 @@
 	<tr>	
 		<th><?php echo $this->Paginator->sort('name');?></th>
 		<th><?php echo $this->Paginator->sort('owner');?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
 		<th><?php echo $this->Paginator->sort('created');?></th>
 	</tr>
 	<?php
 	foreach ($songs as $song): ?>
 	<tr>
 		<!--<td><?php echo h($song['Song']['id']); ?>&nbsp;</td>-->
-		<td><?php echo $this->Html->link(h($song['Song']['name']), array('action' => 'view', $song['Song']['id'])); ?>&nbsp;</td>
-		<td><?php echo $this->Html->link(h($song['Owner']['name']), array('controller' => 'users', 'action' => 'view', $song['Owner']['id'])); ?>&nbsp;</td>
-		<td><?php echo h($song['Song']['created']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $song['Song']['id'])); ?>
-			<!--<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $song['Song']['id']), null, __('Are you sure you want to delete # %s?', $song['Song']['id'])); ?>-->
-		</td>
+		<td><?php echo $this->Html->link(h($song['Song']['name']), array('action' => 'view', $song['Song']['id'])); ?></td>
+		<td><?php echo $this->Html->link(h($song['Owner']['name']), array('controller' => 'users', 'action' => 'view', $song['Owner']['id'])); ?></td>
+		<td><?php echo h($song['Song']['created']); ?></td>
 	</tr>
 <?php endforeach; ?>
 	</table>
