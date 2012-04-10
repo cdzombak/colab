@@ -40,14 +40,12 @@
 			<td><?php echo h($track['name'])?></td>
 			<<td><a href="
 			<?php
-			$max = 0;
 			foreach($trackVersions as $tv){ //forgive me father
-				if($tv['TrackVersions']['track_id'] == $track['id']){ //for i have sinned
-					if($tv['TrackVersions']['id'] > $max)
-						$max = $tv['TrackVersions']['id'];
+				if($tv['TrackVersions']['id'] == $track['current_version']){ //for i have sinned				
+					$newest = $tv['TrackVersions']['id'];
 				}
 			}
-			echo '/', $trackVersions[$max]['TrackVersions']['dir'], '/', $trackVersions[$max]['TrackVersions']['filename'];?>
+			echo '/', $newest['dir'], '/', $newest['filename'];?>
 			" class = "sm2_button"></a></td>
 			<td><?php echo h($track['current_version']); ?>&nbsp;</td>
 			<td><?php echo h($track['created']); ?>&nbsp;</td>
