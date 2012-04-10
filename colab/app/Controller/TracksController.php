@@ -99,21 +99,21 @@ class TracksController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Track->id = $id;
-		if (!$this->Track->exists()) {
-			throw new NotFoundException(__('Invalid track'));
-		}
-		if ($this->Track->delete()) {
-			$this->Session->setFlash(__('Track deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Track was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
+	// public function delete($id = null) {
+	// 	if (!$this->request->is('post')) {
+	// 		throw new MethodNotAllowedException();
+	// 	}
+	// 	$this->Track->id = $id;
+	// 	if (!$this->Track->exists()) {
+	// 		throw new NotFoundException(__('Invalid track'));
+	// 	}
+	// 	if ($this->Track->delete()) {
+	// 		$this->Session->setFlash(__('Track deleted'));
+	// 		$this->redirect(array('action' => 'index'));
+	// 	}
+	// 	$this->Session->setFlash(__('Track was not deleted'));
+	// 	$this->redirect(array('action' => 'index'));
+	// }
 
 /**
  * admin_index method
