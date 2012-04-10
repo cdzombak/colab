@@ -87,21 +87,21 @@ class SongsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
-		$this->Song->id = $id;
-		if (!$this->Song->exists()) {
-			throw new NotFoundException(__('Invalid song'));
-		}
-		if ($this->Song->delete()) {
-			$this->Session->setFlash(__('Song deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Song was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
+	// public function delete($id = null) {
+	// 	if (!$this->request->is('post')) {
+	// 		throw new MethodNotAllowedException();
+	// 	}
+	// 	$this->Song->id = $id;
+	// 	if (!$this->Song->exists()) {
+	// 		throw new NotFoundException(__('Invalid song'));
+	// 	}
+	// 	if ($this->Song->delete()) {
+	// 		$this->Session->setFlash(__('Song deleted'));
+	// 		$this->redirect(array('action' => 'index'));
+	// 	}
+	// 	$this->Session->setFlash(__('Song was not deleted'));
+	// 	$this->redirect(array('action' => 'index'));
+	// }
 
 /**
  * admin_index method
