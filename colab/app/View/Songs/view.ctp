@@ -1,30 +1,9 @@
 <div class="songs view">
-<h2><?php  echo __('Song');?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($song['Song']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Owner'); ?></dt>
-		<dd>
-			<?php echo h($song['Song']['owner']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($song['Song']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($song['Song']['created']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<h2><?php echo h($song['Song']['name']); ?></h2>
+	<p>Created by <?php echo $this->Html->link(h($song['Owner']['name']), array('controller' => 'users', 'action' => 'view', $song['Owner']['id'])); ?> on <?php echo h($song['Song']['created']); ?>.</p>
+
 	<h2><?php echo __('Tracks') ?></h2>
-	
-	
+
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th>Name</th>
