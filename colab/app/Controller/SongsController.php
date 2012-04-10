@@ -40,10 +40,11 @@ class SongsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Song->create();
+			
 			$data = array();
 			$data['name'] = $this->request->data['Song']['name'];
 			$data['owner'] = $this->Auth->user('id');
-			$data['Users']['id'] = $this->Auth->user('id');
+
 			if ($this->Song->save($data)) {
 				$this->Session->setFlash(__('The song has been saved'));
 				$this->redirect(array('action' => 'view', $this->Song->field('id')));
