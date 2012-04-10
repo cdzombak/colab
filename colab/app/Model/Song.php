@@ -64,6 +64,15 @@ class Song extends AppModel {
 		)
 	);
 
+	public $belongsTo = array(
+		'Owner' => array(
+			'className' => 'User',
+			'foreignKey' => 'owner',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
 /**
  * hasAndBelongsToMany associations
