@@ -41,12 +41,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<header id="primary-header"> <!-- TODO swap these two tags -->
 	<div id="header-cont" class="clearfix">
 		
-		<h1><a href="/"><img src="/img/logo-1.png" alt="CoLAB" title="CoLAB" /></a></h1>
+		<h1><a href="/"><img src="/img/logo-bevelled.png" alt="CoLAB" title="CoLAB" /></a></h1>
 		
 		<div id="user-links">
 			<?php 
 			if (!isset($authUser) || !$authUser) {
-			    echo $this->Html->link('Login', array('controller'=>'users', 'action'=>'login'));
+				echo '<a href="#"><img src="/img/test_img/noavatar_sq.jpg" class ="avatar" /></a>';
+				echo 'You are not currently logged in.<br />';
+			    	echo $this->Html->link('Login', array('controller'=>'users', 'action'=>'login'));
 			} else {
 				echo '<a href="#"><img src="/img/test_img/newavatar_sq.jpg" class="avatar" /></a>';
 				echo 'Hello, ' . $authUser['name'] . '!<br />';
@@ -68,7 +70,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 	<footer>
 		<p><a href="#">Blog</a> | <a href="#">Help</a><br />
-		&copy; 2012 CoLAB contributors</p>
+		&copy; 2012 Team CoLAB</p>
 	</footer>
 
 
