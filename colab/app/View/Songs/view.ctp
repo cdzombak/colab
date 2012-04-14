@@ -11,7 +11,6 @@
 		<th>Listen</th>
 		<th>Current Version</th>
 		<th>Message</th>
-		<th>Author</th>
 		<th>Created</th>
 	</tr>
 		<?php
@@ -32,8 +31,8 @@
 			</td>
 			<td><?php echo h($track['current_version']); ?>&nbsp;</td>
 			<td><?php echo h($newest['message']);?>&nbsp;</td>
-			<td><?php echo h($newest['author']);?>&nbsp;</td>
 			<td><?php echo h($track['created']); ?>&nbsp;</td>
+			
 		</tr>
 		<?php } ?>		
 	</table>
