@@ -19,7 +19,7 @@
 			<td><?php echo h($trackVersion['id']); ?><br />
 				<a href="/tvdownload.php?tvfilename=<?php echo $trackVersion['filename']; ?>">Download</a>
 			</td>
-			<td><a href="<?php echo '/', $trackVersion['dir'], '/', $trackVersion['filename'];?>" class = "sm2_button"></a></td>
+			<td><audio src="<?php echo '/', $trackVersion['dir'], '/', $trackVersion['filename'];?>" controls></audio></td>
 			<td><?php echo h($trackVersion['created']); ?></td>
 			<td><?php echo h($trackVersion['message']); ?></td>
 			<td><?php echo $this->Html->link(__($trackVersion['author']['Author']['name']), array('controller' => 'users', 'action' => 'view', $trackVersion['author']['Author']['id'])); ?></td>
