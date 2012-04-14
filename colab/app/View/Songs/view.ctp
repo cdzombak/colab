@@ -3,7 +3,7 @@
 	<p>Created by <?php echo $this->Html->link(h($song['Owner']['name']), array('controller' => 'users', 'action' => 'view', $song['Owner']['id'])); ?> on <?php echo h($song['Song']['created']); ?>.</p>
 
 	<h2><?php echo __('Tracks') ?></h2>
-	<a class="button icon chat" onclick="togglePlay();"><span>Play All!</span></a>
+	<a class="rewind button" onclick="rewindTracks();"</a><a class="button icon chat" onclick="togglePlay();"><span>Play All!</span></a>
 	
 	<table cellpadding="0" cellspacing="0">
 	<tr>

@@ -48,6 +48,12 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	    }
 		play = !play;
 	}
+	
+	function rewindTracks() {
+		$('.audio-track').each(function(index) {
+		    this.currentTime=0;
+		});
+	}
 	</script>
 	
 </head>
