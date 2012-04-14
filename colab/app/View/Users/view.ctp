@@ -5,7 +5,7 @@
 	<div style="align:center;">
 		<h2><?php echo h($user['User']['name']); ?></h2>
 		<p><?php echo h($user['User']['username']); ?> was created on <?php echo h($user['User']['created']); ?>.</p>
-		<h2>Inspirational Quote</h2>
+		<h2>Random Inspirational Quote</h2>
 		<script>inspire();</script>
 	</div>
 </div>
