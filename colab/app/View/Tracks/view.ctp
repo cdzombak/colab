@@ -5,7 +5,7 @@
 	
 	<table cellpadding="0" cellspacing="0">
 		<tr>
-			<th>Version ID</th>
+			<th>Version #</th>
 			<th>Listen</th>
 			<th>Created</th>
 			<th>Message</th>
@@ -16,7 +16,9 @@
 		
 		foreach($track['TrackVersion'] as $trackVersion) { ?>
 		<tr <?php if ($track['Track']['current_version'] == $trackVersion['id']) { echo ' class="current-version"'; } ?>>
-			<td><?php echo h($trackVersion['id']); ?></td>
+			<td><?php echo h($trackVersion['id']); ?><br />
+				<a href="/tvdownload.php?tvfilename=<?php echo $trackVersion['filename']; ?>">Download</a>
+			</td>
 			<td><a href="<?php echo '/', $trackVersion['dir'], '/', $trackVersion['filename'];?>" class = "sm2_button"></a></td>
 			<td><?php echo h($trackVersion['created']); ?></td>
 			<td><?php echo h($trackVersion['message']); ?></td>
