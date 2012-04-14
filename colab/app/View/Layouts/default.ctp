@@ -46,11 +46,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div id="user-links">
 			<?php 
 			if (!isset($authUser) || !$authUser) {
-				echo '<a href="#"><img src="/img/test_img/noavatar_sq.jpg" class ="avatar" /></a>';
-				echo 'You are not currently logged in.<br />';
-			    	echo $this->Html->link('Login', array('controller'=>'users', 'action'=>'login'));
+				echo '<img src="/img/test_img/noavatar_sq.jpg" class ="avatar" />';
+				echo $this->Html->link('Login', array('controller'=>'users', 'action'=>'login'));
 			} else {
-				echo '<a href="#"><img src="/img/test_img/newavatar_sq.jpg" class="avatar" /></a>';
+				echo '<a href="/users/' . $authUser['id'] . '"><img src="/img/test_img/newavatar_sq.jpg" class="avatar" /></a>';
 				echo 'Hello, ' . $authUser['name'] . '!<br />';
 				echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout'));
 			}

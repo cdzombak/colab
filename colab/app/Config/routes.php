@@ -71,6 +71,19 @@
 		  	'trackId' => null),
 		array('pass' => array('tvId'))
 	);
+	
+	Router::connect('/login',
+		array('controller' => 'users', 'action' => 'login')
+	);
+	
+	Router::connect('/logout',
+		array('controller' => 'users', 'action' => 'logout')
+	);
+	
+	Router::connect('/users/:id',
+		array('controller' => 'users', 'action' => 'view'),
+		array('pass' => array('id'))
+	);
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 
