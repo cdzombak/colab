@@ -26,7 +26,7 @@
 					$newest = $tv['TrackVersions'];
 				}
 			}
-			if ($newest !== -1) { echo '<a href="/', $newest['dir'], '/', $newest['filename'], '" class="sm2_button"></a>'; }
+			if ($newest !== -1) { echo '<audio src="/', $newest['dir'], '/', $newest['filename'], '" controls>get out of 1999 loser</audio>'; }
 			?>
 			</td>
 			<td><?php echo h($track['current_version']); ?>&nbsp;</td>
