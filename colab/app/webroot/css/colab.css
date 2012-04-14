@@ -301,6 +301,9 @@ tr.current-version {
 	background-color: #98FF89 !important;
 }
 
+#main h2 {
+	margin-top: 0px !important;
+}
 
 
 /* ==|== non-semantic helper classes ======================================== */
