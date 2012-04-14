@@ -101,14 +101,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   <script defer src="/js/plugins.js"></script>
   <script defer src="/js/script.js"></script>
 
-  <!-- TODO -->
-  <script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
-
 
   <!--[if lt IE 7 ]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
