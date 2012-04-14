@@ -19,8 +19,8 @@ class TrackVersion extends AppModel {
 		'MeioUpload.MeioUpload' => array(
 			'filename' => array(
 				'maxSize'=> 7340032,
-				'allowedMime' => array('audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio', 'audio/wav', 'audio/x-wav', 'audio/wave', 'audio/x-pn-wav'),
-				'allowedExt' => array('.mp3', '.wav'),
+				'allowedMime' => array('audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio', 'audio/wav', 'audio/x-wav', 'audio/wave', 'audio/x-pn-wav', 'application/ogg', 'video/ogg', 'audio/ogg', 'audio/vorbis'),
+				'allowedExt' => array('.mp3', '.wav', '.ogg'),
 				'thumbnails' => false
 			)
 		)
@@ -74,10 +74,7 @@ class TrackVersion extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
-	);
-
-	public $hasOne = array(
+		),
 		'Author' => array(
 			'className' => 'User',
 			'foreignKey' => 'author'
