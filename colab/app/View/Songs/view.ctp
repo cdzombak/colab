@@ -3,7 +3,8 @@
 	<p>Created by <?php echo $this->Html->link(h($song['Owner']['name']), array('controller' => 'users', 'action' => 'view', $song['Owner']['id'])); ?> on <?php echo h($song['Song']['created']); ?>.</p>
 
 	<h2><?php echo __('Tracks') ?></h2>
-	<a class="rewind button" onclick="rewindTracks();"</a><a class="button icon chat" onclick="togglePlay();"><span>Play All!</span></a>
+	<a class="button icon rewind" onclick="rewindTracks();"><span></span></a>
+	<a class="button icon play" onclick="togglePlay();"><span></span></a>
 	
 	<table cellpadding="0" cellspacing="0">
 	<tr>
@@ -11,6 +12,7 @@
 		<th>Listen</th>
 		<th>Current Version</th>
 		<th>Message</th>
+		<th>Author</th>
 		<th>Created</th>
 	</tr>
 		<?php
@@ -31,8 +33,8 @@
 			</td>
 			<td><?php echo h($track['current_version']); ?>&nbsp;</td>
 			<td><?php echo h($newest['message']);?>&nbsp;</td>
+			<td><?php echo h($newest['author']);?>&nbsp;</td>
 			<td><?php echo h($track['created']); ?>&nbsp;</td>
-			
 		</tr>
 		<?php } ?>		
 	</table>

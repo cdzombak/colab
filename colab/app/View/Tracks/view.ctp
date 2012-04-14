@@ -1,6 +1,5 @@
 <div class="tracks view">
 <h2><?php echo $track['Track']['name']; ?></h2>
-	
 	<h2><?php echo __('Versions of this Track') ?></h2>
 	
 	<table cellpadding="0" cellspacing="0">
@@ -26,6 +25,9 @@
 		</tr>
 		<?php } ?>
 	</table>
+		<div class="diff">
+			<a class="button icon diff" onclick="#####################"><span>Diff</span></a>
+		</div>
 </div>
 <div class="actions">
 	<ul>

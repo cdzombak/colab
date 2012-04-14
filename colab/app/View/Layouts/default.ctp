@@ -12,7 +12,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription ?>:
+		CoLAB
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
@@ -25,9 +25,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $scripts_for_layout;
 	?>
 	
-	<style type="text/css">
-	#soundmanager-debug {/* SM2 debug container (optional, makes debug more useable) */ position:absolute;position:fixed;*position:absolute;bottom:10px;right:10px;width:50em;height:18em;overflow:auto;background:#fff;margin:1em;padding:1em;border:1px solid #999;font-family:"lucida console",verdana,tahoma,"sans serif";font-size:x-small;line-height:1.5em;opacity:0.9;filter:alpha(opacity=90);}
-	</style>
 	<script type="text/javascript" src="/js/soundmanager2-jsmin.js"></script>
 	<script type="text/javascript" src="/js/mp3-player-button.js"></script>
 	<script type="text/javascript" src="/js/motivatequote.js">

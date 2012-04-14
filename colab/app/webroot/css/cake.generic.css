@@ -511,7 +511,7 @@ p.error em {
 input[type=submit],
 .actions ul li a,
 .actions a {
-	font-weight:normal;
+	font-weight:bold;
 	padding: 4px 8px;
 	background: #dcdcdc;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#dcdcdc));

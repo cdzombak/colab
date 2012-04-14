@@ -43,7 +43,7 @@ margin-bottom: 15px;
 display: block;
 color: #597390;
 line-height: 24px;
-font-size: 20px;
+font-size: 15px;
 font-weight: bold;
 }
 
@@ -76,19 +76,31 @@ border: 1px solid #979797;
 }
 
 a.button.icon {
+cursor:pointer;
 padding-left: 11px;
 }
 
 a.button.icon span{
 padding-left: 36px;
-background: url(img/icons.png) no-repeat 0 -4px;
+color: #000000;
+background: url(/img/icons.png) no-repeat 0 -4px;
 }
 
-a.button.icon.chat span {
-background-position: 0px -36px;
+a.button.icon.play span {
+background-position: 16px -3px;
+}
+
+a.button.icon.rewind span{
+background-position: -169px -3px;
+}
+
+a.button.icon.diff span{
+background-position: -267px -5px
 }
 
 /* END BUTTON CODE */
+
+div.diff {float:right}
 
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
