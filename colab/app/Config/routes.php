@@ -87,6 +87,10 @@
 		array('controller' => 'users', 'action' => 'add')
 	);
 	
+	Router::connect('/trackVersions/diff',
+		array('controller' => 'trackVersions', 'action' => 'diff')
+	);
+	
 	Router::connect('/users/:id',
 		array('controller' => 'users', 'action' => 'view'),
 		array('pass' => array('id'))

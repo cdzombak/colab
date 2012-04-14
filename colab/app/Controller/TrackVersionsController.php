@@ -32,6 +32,32 @@ class TrackVersionsController extends AppController {
 		$this->set('trackVersion', $this->TrackVersion->read(null, $id));
 	}
 
+	public function diff() {
+		$idA = null;
+		$idB = null;
+		
+		if(isset($this->params['url']['a'])) 
+			$idA = $this->params['url']['a'];
+		if(isset($this->params['url']['b']))
+			$idB = $this->params['url']['b'];
+		
+		if ($idA === null || $idB === null) {
+			throw new BadRequestException('You must include two track version IDs to diff');
+		}
+		
+		$this->TrackVersion->id = $idA;
+		if (!$this->TrackVersion->exists()) {
+			throw new NotFoundException(__('Invalid track version A'));
+		}
+		$this->set('trackVersionA', $this->TrackVersion->read(null, $idA));
+		
+		$this->TrackVersion->id = $idB;
+		if (!$this->TrackVersion->exists()) {
+			throw new NotFoundException(__('Invalid track version B'));
+		}
+		$this->set('trackVersionB', $this->TrackVersion->read(null, $idB));
+	}
+
 /**
  * add method
  *
