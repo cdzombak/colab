@@ -29,6 +29,7 @@
 </div>
 <div class="actions">
 	<ul>
+		<li><?php echo $this->Html->link(__('Back to Song'), array('controller' => 'songs', 'action' => 'view', $track['Track']['song_id'])); ?></li>
 		<li><?php echo $this->Html->link(__('Upload New Version'), '/tracks/'.$track['Track']['id'].'/addVersion'); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Track'), array('action' => 'edit', $track['Track']['id'])); ?> </li>
 		<!--<li><?php echo $this->Form->postLink(__('Delete Track'), array('action' => 'delete', $track['Track']['id']), null, __('Are you sure you want to delete # %s?', $track['Track']['id'])); ?> </li>
