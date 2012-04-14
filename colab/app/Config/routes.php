@@ -58,14 +58,17 @@
 		array('controller' => 'trackVersions', 'action' => 'add'),
 		array('pass' => array('trackId'))
 	);
-	Router::connect('/songs/:id', //i slightly know what i am doing
-	    array('controller' => 'songs', 'action' => 'view'),
-	    array('id' => '[0-9]+')
-	);
+	
 	Router::connect('/songs/:songId/tracks/:trackId',
-		array('controller' => 'tracks', 'action' => 'view', 'songId' => null), //idgaf
+		array('controller' => 'tracks', 'action' => 'view', 'songId' => null),
 		array('pass' => array('trackId'))
 	);
+	
+	Router::connect('/songs/:songId/addCollaborator',
+		array('controller' => 'songs', 'action' => 'addCollaborator'),
+		array('pass' => array('songId'))
+	);
+	
 	Router::connect('/songs/:songId/tracks/:trackId/trackVersions/:tvId',
 		array('controller' => 'trackVersions', 'action' => 'view', 'songId' => null,
 		  	'trackId' => null),

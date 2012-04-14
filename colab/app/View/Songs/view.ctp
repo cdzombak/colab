@@ -36,11 +36,25 @@
 		</tr>
 		<?php } ?>		
 	</table>
+
+	<br /><br />
+
+	<h2><?php echo __('Collaborators') ?></h2>
+
+	<table cellpadding="0" cellspacing="0">
+		<?php
+		foreach($song['User'] as $user) { ?>
+		<tr>
+			<td><?php echo $this->Html->link($user['name'], array('controller' => 'users', 'action' => 'view', $user['id'])); ?></td>
+		</tr>
+		<?php } ?>		
+	</table>
 </div>
 <div class="actions">
 	<ul>
 		<li><?php echo $this->Html->link(__('Add Track To Song'), '/songs/'.$song['Song']['id'].'/addTrack'); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit This Song'), array('action' => 'edit', $song['Song']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Collaborators'), '/songs/'.$song['Song']['id'].'/addCollaborator'); ?> </li>
 		<li><?php echo $this->Html->link(__('Back to Songs'), array('action' => 'index'));?></li>
 		<!--<li><?php echo $this->Form->postLink(__('Delete Song'), array('action' => 'delete', $song['Song']['id']), null, __('Are you sure you want to delete # %s?', $song['Song']['id'])); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('List Songs'), array('action' => 'index')); ?> </li>-->

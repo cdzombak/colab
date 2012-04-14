@@ -81,6 +81,30 @@ class SongsController extends AppController {
 			$this->request->data = $this->Song->read(null, $id);
 		}
 	}
+	
+	public function addCollaborator($id = null) {
+		$this->Song->id = $id;
+		$this->loadModel('User');
+		
+		if (!$this->Song->exists()) {
+			throw new NotFoundException(__('Invalid song'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Song->save($this->data)) {
+				$this->Session->setFlash(__('Collaborators: SAVED!'));
+				$this->redirect(array('action' => 'view', $id));
+			} else {
+				$this->Session->setFlash(__('The song could not be saved. Please, try again.'));
+			}
+		}
+		
+		if (empty($this->data)) {
+			$this->data = $this->Song->read(null, $id);
+		}
+
+		$this->set('song', $this->Song->read(null, $id));
+		$this->set('users', $this->User->find('list', array('recursive'=>0, 'fields'=>array('id','name'))));
+	}
 
 /**
  * delete method
