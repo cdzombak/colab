@@ -11,4 +11,5 @@
     ?>
     </fieldset>
 <?php echo $this->Form->end(__('Login'));?>
+<p><a href="/users/add">Create an Account</a></p>
 </div>

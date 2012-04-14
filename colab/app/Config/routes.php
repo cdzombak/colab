@@ -79,6 +79,10 @@
 	Router::connect('/logout',
 		array('controller' => 'users', 'action' => 'logout')
 	);
+
+	Router::connect('/users/add',
+		array('controller' => 'users', 'action' => 'add')
+	);
 	
 	Router::connect('/users/:id',
 		array('controller' => 'users', 'action' => 'view'),
