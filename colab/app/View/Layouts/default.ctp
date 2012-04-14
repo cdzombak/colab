@@ -32,6 +32,22 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<script type="text/javascript" src="/js/mp3-player-button.js"></script>
 	<script type="text/javascript">
 	soundManager.url = '/swf/'; // directory where SM2 .SWFs live
+	var play = new Boolean(true);
+	</script>
+	<script type="text/javascript">
+	function togglePlay() {
+	    if (play) {
+			//play all tracks
+			// wanna change css for button right here
+			$('.audio-track').trigger('play');
+	    }
+	    else {
+			//pause all tracks
+			//also chance css button
+	        $('.audio-track').trigger('pause');
+	    }
+		play = !play;
+	}
 	</script>
 	
 </head>

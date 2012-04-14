@@ -3,7 +3,7 @@
 	<p>Created by <?php echo $this->Html->link(h($song['Owner']['name']), array('controller' => 'users', 'action' => 'view', $song['Owner']['id'])); ?> on <?php echo h($song['Song']['created']); ?>.</p>
 
 	<h2><?php echo __('Tracks') ?></h2>
-
+	<button type="button" onclick="togglePlay();">Play All The Tracks!!</button>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th>Track</th>
@@ -26,7 +26,7 @@
 					$newest = $tv['TrackVersions'];
 				}
 			}
-			if ($newest !== -1) { echo '<audio src="/', $newest['dir'], '/', $newest['filename'], '" controls>get out of 1999 loser</audio>'; }
+			if ($newest !== -1) { echo '<audio class="audio-track" src="/', $newest['dir'], '/', $newest['filename'], '" controls>get out of 1999 loser</audio>'; }
 			?>
 			</td>
 			<td><?php echo h($track['current_version']); ?>&nbsp;</td>
