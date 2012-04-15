@@ -1,3 +1,20 @@
+<script type="text/javascript">
+	function diff() {
+		var versions = new Array();
+		
+		$('input.diff-checkbox:checked').each(function(i) {
+			versions.push(this.dataset['trackversion']);
+		});
+		
+		if (versions.length !== 2) {
+			alert("Please select exactly two versions to diff.");
+			return;
+		}
+		
+		window.location = "/trackVersions/diff?a=" + versions[0] + "&b=" + versions[1];
+	}
+</script>
+
 <div class="tracks view">
 <h2><?php echo $track['Track']['name']; ?></h2>
 	<h2><?php echo __('Versions of this Track') ?></h2>
@@ -9,6 +26,7 @@
 			<th>Created</th>
 			<th>Message</th>
 			<th>Author</th>
+			<th>Select for Diff</th>
 		</tr>
 		<?php
 		$track['TrackVersion'] = array_reverse($track['TrackVersion']);
@@ -22,11 +40,12 @@
 			<td><?php echo h($trackVersion['created']); ?></td>
 			<td><?php echo h($trackVersion['message']); ?></td>
 			<td><?php echo $this->Html->link(__($trackVersion['author']['Author']['name']), array('controller' => 'users', 'action' => 'view', $trackVersion['author']['Author']['id'])); ?></td>
+			<td><input type="checkbox" data-trackversion="<?php echo $trackVersion['id']; ?>" class="diff-checkbox" /></td>
 		</tr>
 		<?php } ?>
 	</table>
 		<div class="diff">
-			<a class="button icon diff" onclick="#####################"><span>Diff</span></a>
+			<a class="button icon diff" onclick="diff();"><span>Diff</span></a>
 		</div>
 </div>
 <div class="actions">
