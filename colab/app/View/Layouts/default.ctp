@@ -105,7 +105,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-<?php echo $this->element('sql_dump'); ?>
+<!--<?php echo $this->element('sql_dump'); ?>-->
 
 </body>
 </html>
