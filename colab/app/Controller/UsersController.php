@@ -21,7 +21,7 @@ class UsersController extends AppController {
 	public function logout() {
 		$this->Session->setFlash(__('Bye ' . $this->Auth->user('name') . '!'));
 		$this->Auth->logout();
-	    //$this->redirect($this->Auth->logout());
+		$this->redirect($this->Auth->logout());
 	}
 
 	public function beforeFilter() {
