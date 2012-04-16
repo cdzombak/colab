@@ -10,16 +10,14 @@
 	<tr>
 		<th>Track</th>
 		<th>Listen</th>
-		<th>Current Version</th>
 		<th>Message</th>
-		<th>Author</th>
 		<th>Created</th>
 	</tr>
 		<?php
 		//array_reverse($track['TrackVersion']);
 		foreach($song['Track'] as $track) { ?>
 		<tr>
-			<td><?php echo $this->Html->link($track['name'], array('controller' => 'tracks', 'action' => 'view', $track['id'])); ?></td>
+			<td><?php echo $this->Html->link($track['name'], array('controller' => 'tracks', 'action' => 'view', $track['id'])); ?>&nbsp;&nbsp;v<strong><?php echo h($track['current_version']); ?></strong></td>
 			<td>
 			<?php
 			$newest = -1;
@@ -28,12 +26,10 @@
 					$newest = $tv['TrackVersions'];
 				}
 			}
-			if ($newest !== -1) { echo '<audio class="audio-track" src="/', $newest['dir'], '/', $newest['filename'], '" controls>get out of 1999 loser</audio>'; }
+			if ($newest !== -1) { echo '<audio class="audio-track" src="/', $newest['dir'], '/', $newest['filename'], '" controls style="width:255px;">get out of 1999 loser</audio>'; }
 			?>
 			</td>
-			<td><?php echo h($track['current_version']); ?>&nbsp;</td>
 			<td><?php echo h($newest['message']);?>&nbsp;</td>
-			<td><?php echo h($newest['author']);?>&nbsp;</td>
 			<td><?php echo h($track['created']); ?>&nbsp;</td>
 		</tr>
 		<?php } ?>		
