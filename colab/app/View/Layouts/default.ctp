@@ -27,7 +27,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	
 	<script type="text/javascript" src="/js/soundmanager2-jsmin.js"></script>
 	<script type="text/javascript" src="/js/mp3-player-button.js"></script>
-	<script type="text/javascript" src="/js/motivatequote.js">
+	<script type="text/javascript" src="/js/motivatequote.js"></script>
 	<script type="text/javascript">
 	soundManager.url = '/swf/'; // directory where SM2 .SWFs live
 	var play = new Boolean(true);
