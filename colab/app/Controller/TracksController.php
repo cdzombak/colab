@@ -56,7 +56,7 @@ class TracksController extends AppController {
 			
 			if ($this->Track->save($data)) {
 				$this->Session->setFlash(__('The track has been saved'));
-				$this->redirect(array('action' => 'view', $this->Track->field('id')));
+				$this->redirect(array('controller' => 'trackVersions', 'action' => 'add', $this->Track->field('id')));
 			} else {
 				$this->Session->setFlash(__('The track could not be saved. Please, try again.'));
 			}
