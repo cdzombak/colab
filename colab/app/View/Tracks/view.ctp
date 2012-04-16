@@ -13,6 +13,23 @@
 		
 		window.location = "/trackVersions/diff?a=" + versions[0] + "&b=" + versions[1];
 	}
+	
+	$(function() {
+		$('a.revert-link').click(function(e) {
+			e.preventDefault();
+			
+			if (this.dataset['activated'] === true) return;
+			this.dataset['activated'] = true;
+			
+			$(this).text("Working...");
+			
+			$.post(
+				'/songs/<?php echo $track['Track']['song_id']; ?>/tracks/<?php echo $track['Track']['id']; ?>/setCurrentVersion',
+				{ 'trackVersion': this.dataset['trackversion'] },
+				function(data, status, jqxhr) { location.reload(); }
+			);
+		});
+	});
 </script>
 
 <div class="tracks view">

@@ -36,8 +36,6 @@ class TracksController extends AppController {
 		}
 		$this->set('track', $track);
 	}
-	
-	///LOOK AT TRACK STUFF UP HERE TO FORWARD TO SONGS VIEW PAGE ^^^^^^^^^
 
 /**
  * add method
@@ -94,6 +92,40 @@ class TracksController extends AppController {
 			}
 		} else {
 			$this->request->data = $this->Track->read(null, $id);
+		}
+	}
+	
+	public function setCurrentVersion($trackid=null) {
+		$this->autoRender = false;
+		
+		$this->Track->id = $trackid;
+		if (!$this->Track->exists()) {
+			throw new NotFoundException(__('Invalid track'));
+		}
+		$track = $this->Track->read(null, $trackid);
+		
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if (!isset($this->request->data['trackVersion'])) {
+				throw new BadRequestException('no track version specified');
+			}
+			$tvid = $this->request->data['trackVersion'];
+			
+			$this->loadModel('TrackVersion');
+			$this->TrackVersion->id = $tvid;
+			if (!$this->TrackVersion->exists()) {
+				throw new NotFoundException(__('Invalid track version'));
+			}
+			
+			$tv = $this->TrackVersion->read(null, $tvid);
+			if ($tv['TrackVersion']['track_id'] !== $track['Track']['id']) {
+				throw new BadRequestException("Track version $tvid does not belong to track $trackid");
+			}
+			
+			$data = array();
+			$data['current_version'] = $tvid;
+			if ($this->Track->save($data)) {
+				// okay!
+			}
 		}
 	}
 

@@ -57,6 +57,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 
 <body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+
+  <script defer src="/js/plugins.js"></script>
+  <script defer src="/js/script.js"></script>
+
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
 
 	<header id="primary-header"> <!-- TODO swap these two tags -->
 	<div id="header-cont" class="clearfix">
@@ -91,19 +102,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<p><a href="#">Blog</a> | <a href="#">Help</a><br />
 		&copy; 2012 Team CoLAB</p>
 	</footer>
-
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-
-  <script defer src="/js/plugins.js"></script>
-  <script defer src="/js/script.js"></script>
-
-
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
 
 <!--<?php echo $this->element('sql_dump'); ?>-->
 

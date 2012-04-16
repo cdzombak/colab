@@ -75,6 +75,11 @@
 		array('pass' => array('tvId'))
 	);
 	
+	Router::connect('/songs/:songId/tracks/:trackId/setCurrentVersion',
+		array('controller' => 'tracks', 'action' => 'setCurrentVersion', 'songId' => null),
+		array('pass' => array('trackId'))
+	);
+	
 	Router::connect('/login',
 		array('controller' => 'users', 'action' => 'login')
 	);
