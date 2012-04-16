@@ -386,6 +386,9 @@ tr.current-version {
 	background-color: #98FF89 !important;
 }
 
+audio {
+	width: 254px;
+}
 
 
 /* ==|== non-semantic helper classes ======================================== */

@@ -21,26 +21,29 @@
 	
 	<table cellpadding="0" cellspacing="0">
 		<tr>
-			<th>Version #</th>
-			<th>Listen</th>
+			<th>Version</th>
+			<th><!--Listen--></th>
 			<th>Created</th>
-			<th>Message</th>
+			<!--<th>Message</th>-->
 			<th>Author</th>
-			<th>Select for Diff</th>
+			<th>Diff</th>
+			<th class="actions"><!--<?php echo __('Actions');?>--></th>
 		</tr>
 		<?php
 		$track['TrackVersion'] = array_reverse($track['TrackVersion']);
 		
 		foreach($track['TrackVersion'] as $trackVersion) { ?>
 		<tr <?php if ($track['Track']['current_version'] == $trackVersion['id']) { echo ' class="current-version"'; } ?>>
-			<td><?php echo h($trackVersion['id']); ?><br />
-				<a href="/tvdownload.php?tvfilename=<?php echo $trackVersion['filename']; ?>">Download</a>
-			</td>
-			<td><audio src="<?php echo '/', $trackVersion['dir'], '/', $trackVersion['filename'];?>" controls></audio></td>
+			<td><?php echo h($trackVersion['id']); ?></td>
+			<td><?php echo h($trackVersion['message']); ?><br /><audio src="<?php echo '/', $trackVersion['dir'], '/', $trackVersion['filename'];?>" controls style="width:254px; margin-top:5px;"></audio></td>
 			<td><?php echo h($trackVersion['created']); ?></td>
-			<td><?php echo h($trackVersion['message']); ?></td>
+			<!--<td><?php echo h($trackVersion['message']); ?></td>-->
 			<td><?php echo $this->Html->link(__($trackVersion['author']['Author']['name']), array('controller' => 'users', 'action' => 'view', $trackVersion['author']['Author']['id'])); ?></td>
 			<td><input type="checkbox" data-trackversion="<?php echo $trackVersion['id']; ?>" class="diff-checkbox" /></td>
+			<td class="actions">
+				<a href="/tvdownload.php?tvfilename=<?php echo $trackVersion['filename']; ?>">Download</a>
+				<a class="revert-link" data-trackversion="<?php echo $trackVersion['id']; ?>" style="cursor:pointer;">Make Current</a>
+			</td>
 		</tr>
 		<?php } ?>
 	</table>
