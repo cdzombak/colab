@@ -33,9 +33,10 @@
 </script>
 
 <div class="tracks view">
-<h2><?php echo $track['Track']['name']; ?></h2>
-	<h2><?php echo __('Versions of this Track') ?></h2>
-	
+<h2><?php echo $track['Track']['name']; ?> - History</h2>
+	<div class="diff">
+		<a class="button icon diff" onclick="diff();"><span>Diff</span></a>
+	</div>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th>Version</th>
@@ -64,9 +65,6 @@
 		</tr>
 		<?php } ?>
 	</table>
-		<div class="diff">
-			<a class="button icon diff" onclick="diff();"><span>Diff</span></a>
-		</div>
 </div>
 <div class="actions">
 	<ul>
