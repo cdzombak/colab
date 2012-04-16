@@ -30,18 +30,18 @@
 	
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	
-	Router::connect('/songs/add' 
-		, array('controller' => 'songs', 'action' => 'add')
+	Router::connect('/songs/add',
+		array('controller' => 'songs', 'action' => 'add')
 	);
 	
-	Router::connect('/songs/:id/edit' 
-		, array('controller' => 'songs', 'action' => 'add')
-		, array('pass' => array('id'))
+	Router::connect('/songs/:id/edit',
+		array('controller' => 'songs', 'action' => 'edit'),
+		array('pass' => array('id'))
 	);
 	
-	Router::connect('/songs/:id' 
-		, array('controller' => 'songs', 'action' => 'view')
-		, array('pass' => array('id'))
+	Router::connect('/songs/:id',
+		array('controller' => 'songs', 'action' => 'view'),
+		array('pass' => array('id'))
 	);
 	
 	Router::connect('/songs/:id/addTrack',
@@ -49,9 +49,9 @@
 		array('pass' => array('id'))
 	);
 	
-	Router::connect('/tracks/:id' 
-		, array('controller' => 'tracks', 'action' => 'view')
-		, array('pass' => array('id'))
+	Router::connect('/tracks/:id',
+		array('controller' => 'tracks', 'action' => 'view'),
+		array('pass' => array('id'))
 	);
 	
 	Router::connect('/tracks/:trackId/addVersion',
@@ -70,8 +70,7 @@
 	);
 	
 	Router::connect('/songs/:songId/tracks/:trackId/trackVersions/:tvId',
-		array('controller' => 'trackVersions', 'action' => 'view', 'songId' => null,
-		  	'trackId' => null),
+		array('controller' => 'trackVersions', 'action' => 'view', 'songId' => null, 'trackId' => null),
 		array('pass' => array('tvId'))
 	);
 	
